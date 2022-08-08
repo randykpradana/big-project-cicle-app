@@ -24,7 +24,11 @@ public class LoginTest extends TestBase {
 
     @Test(priority=1)
     public void loginTest() {
-        loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+        loginPage.clickLoginButton();
+        loginPage.enterEmailField(prop.getProperty("username"));
+        loginPage.clickLoginNextButton();
+        loginPage.enterPasswordField(prop.getProperty("password"));
+        loginPage.clickPassNextButton();
     }
 
     @AfterMethod
