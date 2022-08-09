@@ -22,7 +22,7 @@ public class LoginPage {
     WebElement companyLabel;
     // Initialize Page Objects
     public LoginPage() {
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver, "/signin");
     }
     // Actions
     public LoginPage clickLoginButton() {
