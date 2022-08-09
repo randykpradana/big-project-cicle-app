@@ -34,4 +34,12 @@ public class HomePage {
         searchBarField.sendKeys();
         return new HomePage();
     }
+    public HomePage clickNavbarDrpDwnIcon() {
+        navbarDrpDwnIcon.click();
+        return new HomePage();
+    }
+    public HomePage selectBlastDrpDwn() {
+        blastDrpDwn.click();
+        return new HomePage();
+    }
 }
