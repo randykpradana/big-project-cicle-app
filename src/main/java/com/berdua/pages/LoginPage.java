@@ -1,15 +1,14 @@
 package com.berdua.pages;
 
+import com.berdua.base.TestBase;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.berdua.base.TestBase.driver;
-
-public class LoginPage {
+public class LoginPage extends TestBase {
     // Page Factory
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div[2]/div[1]")
-    WebElement loginButton;
+    By loginButton = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]");
     @FindBy(xpath = "//*[@id=\"identifierId\"]")
     WebElement emailField;
     @FindBy(xpath = "//*[@id=\"identifierNext\"]/div/button/span")
@@ -25,9 +24,8 @@ public class LoginPage {
         PageFactory.initElements(driver, "/signin");
     }
     // Actions
-    public LoginPage clickLoginButton() {
-        loginButton.click();
-        return new LoginPage();
+    public void clickLoginButton() {
+        driver.findElements(loginButton);
     }
     public LoginPage enterEmailField(String username) {
         emailField.sendKeys(username);
