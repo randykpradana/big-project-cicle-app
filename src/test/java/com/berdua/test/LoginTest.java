@@ -1,4 +1,4 @@
-package com.berdua;
+package com.berdua.test;
 
 import com.berdua.base.TestBase;
 import com.berdua.pages.LoginPage;
