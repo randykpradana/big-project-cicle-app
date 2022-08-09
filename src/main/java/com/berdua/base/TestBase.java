@@ -1,8 +1,12 @@
 package com.berdua.base;
 
 import com.berdua.utils.TestUtil;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,6 +36,14 @@ public class TestBase {
             System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
             driver = new ChromeDriver();
         }
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("test-type");
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-web-security");
+        options.addArguments("--allow-running-insecure-content");
+        capabilities.setCapability("chrome.binary", "./src//lib//chromedriver");
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
