@@ -33,17 +33,17 @@ public class TestBase {
     public static void initialization() {
         String browserName = prop.getProperty("browser");
         if (browserName.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
             driver = new ChromeDriver();
         }
-//        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("test-type");
         options.addArguments("--start-maximized");
         options.addArguments("--disable-web-security");
         options.addArguments("--allow-running-insecure-content");
-//        capabilities.setCapability("chrome.binary", "src/test/resources/chromedriver");
-//        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        capabilities.setCapability("chrome", "src/test/resources/chromedriver");
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
