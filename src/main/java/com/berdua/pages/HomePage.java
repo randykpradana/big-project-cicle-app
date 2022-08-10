@@ -1,10 +1,14 @@
 package com.berdua.pages;
 
+import com.berdua.base.TestBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
-    // Page Factory
+public class HomePage extends TestBase {
+    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div/div[2]/div[3]/div/div/div[2]/div/p")
+    WebElement company;
+
     @FindBy(xpath = "//*[@id=\"root\"]/div[3]/div[4]/a[2]/div")
     WebElement teamCard;
     @FindBy(name = "//*[@id=\"root\"]/div[1]/div[2]/div[4]/div/span")
@@ -17,7 +21,12 @@ public class HomePage {
     WebElement navbarDrpDwnIcon;
     @FindBy(xpath = "//*[@id=\"root\"]/div[2]/div[2]/div/div/div[1]/div[2]/div/div/div/a[2]/div/p")
     WebElement blastDrpDwn;
+
     // Actions
+    public HomePage() {
+        PageFactory.initElements(driver, this);
+    }
+
     public HomePage clickTeamCard() {
         teamCard.click();
         return new HomePage();
