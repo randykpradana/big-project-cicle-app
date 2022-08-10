@@ -2,6 +2,8 @@ package com.berdua.test;
 
 import com.berdua.base.TestBase;
 import com.berdua.pages.LoginPage;
+import javafx.scene.layout.Priority;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,6 +28,8 @@ public class LoginTest extends TestBase {
         loginPage.clickLoginNextButton();
         loginPage.enterPasswordField(prop.getProperty("password"));
         loginPage.clickPassNextButton();
+        loginPage.selectCompanyLabel();
+        Assert.assertEquals(loginPage.validateDashboard(), "Home");
     }
 
     @AfterMethod
