@@ -37,7 +37,7 @@ public class BlastTest extends TestBase {
         homePage.clickNavbarDrpDwnIcon();
         homePage.selectBlastDrpDwn();
 
-        blastPage.displayBlastLabel();
+        blastPage.displayBlastsLabel();
         Assert.assertEquals("Blast", "Blast");
     }
     @Test
@@ -55,7 +55,7 @@ public class BlastTest extends TestBase {
         teamPage.clickBlastWidget();
 
         blastPage.clickCreateBlastBarBtn();
-        blastPage.displayCreatePostLabel();
+        blastPage.displayCreateBlastLabel();
         Assert.assertEquals("Create a Blast", "Create a Blast");
     }
     @Test
@@ -73,7 +73,7 @@ public class BlastTest extends TestBase {
         teamPage.clickBlastWidget();
 
         blastPage.clickCreateBlastBarBtn();
-        blastPage.displayCreatePostLabel();
+        blastPage.displayCreateBlastLabel();
         Assert.assertEquals("Create a Blast", "Create a Blast");
     }
     @AfterMethod
