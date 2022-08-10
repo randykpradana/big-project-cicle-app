@@ -42,7 +42,7 @@ public class TestBase {
         options.addArguments("--start-maximized");
         options.addArguments("--disable-web-security");
         options.addArguments("--allow-running-insecure-content");
-        capabilities.setCapability("chrome.binary", "./src//lib//chromedriver");
+        capabilities.setCapability("chrome", "src/test/resources/chromedriver");
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
         driver.manage().window().maximize();
