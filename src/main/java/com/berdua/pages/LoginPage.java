@@ -11,7 +11,7 @@ public class LoginPage extends TestBase {
     By loginNextButton = By.xpath("//*[@id=\"identifierNext\"]/div/button/span");
     By passwordField = By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input");
     By passNextButton = By.xpath("//*[@id=\"passwordNext\"]/div/button/span");
-    By companyLabel = By.xpath("/html/body/div[2]/div[3]/div/div/div[2]/div[3]/div/div/div[2]/div/p");
+    By companyLabel = By.xpath("/html/body/div[2]/div[3]/div/div/div[2]/div[3]/div/div/div[2]");
 
 
     // Initialize Page Objects

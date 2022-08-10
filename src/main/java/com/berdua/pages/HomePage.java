@@ -8,8 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage extends TestBase {
     @FindBy(xpath = "/html/body/div[2]/div[3]/div/div/div[2]/div[3]/div/div/div[2]/div/p")
     WebElement company;
-
-    @FindBy(xpath = "//*[@id=\"root\"]/div[3]/div[4]/a[2]/div")
+    @FindBy(xpath = "//*[@id=\"root\"]/div[3]/div[4]/a/div/div[1]")
     WebElement teamCard;
     @FindBy(name = "//*[@id=\"root\"]/div[1]/div[2]/div[4]/div/span")
     WebElement profileIcon;
