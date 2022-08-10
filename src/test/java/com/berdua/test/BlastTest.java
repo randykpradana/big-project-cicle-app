@@ -35,6 +35,7 @@ public class BlastTest extends TestBase {
     }
     @Test(priority = 1)
     public void B01_User_directed_to_Blast_page_when_select_Blast_on_dropdown_navigation_bar() {
+        homePage.clickTeamCard();
         homePage.clickNavbarDrpDwnIcon();
         homePage.selectBlastDrpDwn();
 
@@ -43,6 +44,7 @@ public class BlastTest extends TestBase {
     }
     @Test(priority = 2)
     public void B02_User_directed_to_Create_a_Blast_page_when_click_Create_Post_bar_button() {
+        homePage.clickTeamCard();
         homePage.clickNavbarDrpDwnIcon();
         homePage.selectBlastDrpDwn();
 
@@ -54,6 +56,7 @@ public class BlastTest extends TestBase {
     }
     @Test(priority = 3)
     public void User_create_a_new_post_with_all_completed_fields() {
+        homePage.clickTeamCard();
         homePage.clickNavbarDrpDwnIcon();
         homePage.selectBlastDrpDwn();
 
