@@ -1,52 +1,48 @@
 package com.berdua.pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import com.berdua.base.TestBase;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.berdua.base.TestBase.driver;
-
-public class LoginPage {
+public class LoginPage extends TestBase {
     // Page Factory
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div[2]/div[1]")
-    WebElement loginButton;
-    @FindBy(xpath = "//*[@id=\"identifierId\"]")
-    WebElement emailField;
-    @FindBy(xpath = "//*[@id=\"identifierNext\"]/div/button/span")
-    WebElement loginNextButton;
-    @FindBy(xpath = "//*[@id=\"password\"]/div[1]/div/div[1]/input")
-    WebElement passwordField;
-    @FindBy(xpath = "//*[@id=\"passwordNext\"]/div/button/span")
-    WebElement passNextButton;
-    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div/div[2]/div[3]/div")
-    WebElement companyLabel;
+    By loginButton = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]");
+    By emailField = By.xpath("//*[@id=\"identifierId\"]");
+    By loginNextButton = By.xpath("//*[@id=\"identifierNext\"]/div/button/span");
+    By passwordField = By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input");
+    By passNextButton = By.xpath("//*[@id=\"passwordNext\"]/div/button/span");
+    By companyLabel = By.xpath("/html/body/div[2]/div[3]/div/div/div[2]/div[3]/div/div/div[2]");
+
+
     // Initialize Page Objects
     public LoginPage() {
         PageFactory.initElements(driver, "/signin");
     }
     // Actions
-    public LoginPage clickLoginButton() {
-        loginButton.click();
-        return new LoginPage();
+    public void clickLoginButton() {
+        driver.findElement(loginButton).click();
     }
     public LoginPage enterEmailField(String username) {
-        emailField.sendKeys(username);
+        driver.findElement(emailField).sendKeys(username);
         return new LoginPage();
     }
     public LoginPage clickLoginNextButton() {
-        loginNextButton.click();
+        driver.findElement(loginNextButton).click();
         return new LoginPage();
     }
     public LoginPage enterPasswordField(String password) {
-        passwordField.sendKeys(password);
+        driver.findElement(passwordField).sendKeys(password);
         return new LoginPage();
     }
     public LoginPage clickPassNextButton() {
-        passNextButton.click();
+        driver.findElement(passNextButton).click();
         return new LoginPage();
     }
     public LoginPage selectCompanyLabel() {
-        companyLabel.click();
+        driver.findElement(companyLabel).click();
         return new LoginPage();
+    }
+    public String validateDashboard() {
+        return driver.getTitle();
     }
 }
