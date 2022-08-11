@@ -1,6 +1,7 @@
 package com.berdua.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.berdua.base.TestBase.driver;
@@ -33,7 +34,7 @@ public class BlastPage {
      * Create Blast
      */
     By createBlastLabel = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[2]/div[1]/h1");
-    By postTitleField = By.cssSelector("#root > div.Main_container__39jS7 > div.Main_mainCol__3MC7n > div > div > div.CreateBlastPage_headerSection__hFvYv > div");
+    By postTitleField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/textarea");
     By postStoryField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div");
     /**
      * Text Formatting
@@ -183,7 +184,9 @@ public class BlastPage {
         driver.findElement(createBlastLabel).isDisplayed();
     }
     public void enterPostTitleField(String title) {
-        driver.findElement(postTitleField).getAttribute("Type a title...");
+        driver.findElement(postTitleField).sendKeys(Keys.TAB);
+        driver.findElement(postTitleField).clear();
+        driver.findElement(postTitleField).sendKeys(title);
     }
     public void enterPostStoryField(String story) {
         driver.findElement(postStoryField).sendKeys(story);

@@ -6,8 +6,6 @@ import com.berdua.pages.HomePage;
 import com.berdua.pages.LoginPage;
 import com.berdua.pages.TeamPage;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -37,9 +35,9 @@ public class BlastTest extends TestBase {
         loginPage.enterPasswordField(prop.getProperty("password"));
         Thread.sleep(1000);
         loginPage.clickPassNextButton();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         loginPage.selectCompanyLabel();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         org.testng.Assert.assertEquals(loginPage.validateDashboard(), "Home");
     }
     @Test(priority = 1)
@@ -89,8 +87,7 @@ public class BlastTest extends TestBase {
         Thread.sleep(2000);
 
         blastPage.clickCreateBlastBarBtn();
-        Thread.sleep(3000);
-//        driver.findElement(By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]")).sendKeys("title");
+        Thread.sleep(2000);
         blastPage.enterPostTitleField(prop.getProperty("titleField"));
         Thread.sleep(2000);
         blastPage.enterPostStoryField(prop.getProperty("storyField"));
