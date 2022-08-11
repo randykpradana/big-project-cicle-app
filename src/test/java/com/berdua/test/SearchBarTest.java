@@ -1,17 +1,19 @@
 package com.berdua.test;
 
-import com.berdua.base.TestBase;
-import com.berdua.pages.LoginPage;
-import javafx.scene.layout.Priority;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
+import com.berdua.pages.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LoginTest extends TestBase {
-    LoginPage loginPage;
+import static com.berdua.base.TestBase.initialization;
+import static com.berdua.base.TestBase.prop;
 
-    public LoginTest() {
+public class SearchBarTest {
+    LoginPage loginPage;
+    HomePage homePage;
+    TeamPage teamPage;
+    SearchPage searchPage;
+
+    public SearchBarTest() {
         super();
     }
 
@@ -19,21 +21,30 @@ public class LoginTest extends TestBase {
     public void setUp() throws InterruptedException {
         initialization();
         loginPage = new LoginPage();
-    }
-
-    @Test()
-    public void loginTest() {
         loginPage.clickLoginButton();
         loginPage.enterEmailField(prop.getProperty("username"));
         loginPage.clickLoginNextButton();
         loginPage.enterPasswordField(prop.getProperty("password"));
         loginPage.clickPassNextButton();
+        Thread.sleep(5000);
         loginPage.selectCompanyLabel();
-        Assert.assertEquals(loginPage.validateDashboard(), "Home");
+        org.testng.Assert.assertEquals(loginPage.validateDashboard(), "Home");
+        Thread.sleep(5000);
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
+
+
+    @Test(priority = 1)
+    public void S01_Find_Team_Sekolah_QA_13() {
+        homePage.clickTeamCard();
+
+        searchPage.clickSearchBar();
+        searchPage.clickTeamSekolahQA();
+
+
+
+
     }
+
+
 }
