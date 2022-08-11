@@ -1,8 +1,6 @@
 package com.berdua.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import static com.berdua.base.TestBase.driver;
 
