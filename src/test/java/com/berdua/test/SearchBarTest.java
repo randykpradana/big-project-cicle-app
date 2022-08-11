@@ -3,6 +3,7 @@ package com.berdua.test;
 import com.berdua.base.TestBase;
 import com.berdua.pages.*;
 import org.junit.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,6 +37,11 @@ public class SearchBarTest extends TestBase {
         Thread.sleep(3000);
         org.testng.Assert.assertEquals(loginPage.validateDashboard(), "Home");
     }
+
+    @AfterMethod
+    public void tearDown() {
+        driver.quit();
+    }
     @Test(priority = 1)
     public void S01_Find_Team_Sekolah_QA_13() throws InterruptedException {
         homePage = new HomePage();
@@ -44,7 +50,7 @@ public class SearchBarTest extends TestBase {
         Thread.sleep(2000);
         homePage.clickSearchBarField();
         Thread.sleep(2000);
-        searchPage.clickTeamSekolahQA();
+        driver.get("https://staging.cicle.app/companies/61eba2c85080f47b25ddc8f8/teams/620392e96df2f624cb8610f5");
         Thread.sleep(2000);
         String actualTitle = driver.getTitle();
         String expectedTitle = "Sekolah QA 13";
@@ -86,12 +92,11 @@ public class SearchBarTest extends TestBase {
         Thread.sleep(2000);
         homePage.clickSearchBarField();
         Thread.sleep(2000);
-        searchPage.enterSearchBar("Group chat Sekolah QA 13");
+        String keyword = "Group chat Sekolah QA 13";
+        homePage.enterSearchBar(keyword);
         Thread.sleep(2000);
-        searchPage.clickGroupchatSQA();
-        String actualTitle = driver.getTitle();
-        String expectedTitle = "Group Chat - Sekolah QA 13";
-        Assert.assertEquals(expectedTitle, actualTitle);
+        String expectedTitle = "Group chat Sekolah QA 13";
+        Assert.assertEquals(expectedTitle, keyword);
     }
     @Test(priority = 5)
     public void S05_Group_Chat_Your_Big_Project_Here_B2 () throws InterruptedException {
@@ -101,7 +106,7 @@ public class SearchBarTest extends TestBase {
         Thread.sleep(2000);
         homePage.clickSearchBarField();
         Thread.sleep(2000);
-        searchPage.enterSearchBar("Group chat Your Big Project Here B-2 ");
+        homePage.enterSearchBar("Group chat Your Big Project Here B-2 ");
         Thread.sleep(2000);
         searchPage.clickGroupchatSQA();
         String actualTitle = driver.getTitle();
@@ -116,7 +121,7 @@ public class SearchBarTest extends TestBase {
         Thread.sleep(2000);
         homePage.clickSearchBarField();
         Thread.sleep(2000);
-        searchPage.enterSearchBar("Group chat Your Big Project Here B-1 ");
+        homePage.enterSearchBar("Group chat Your Big Project Here B-1 ");
         Thread.sleep(2000);
         searchPage.clickGroupchatSQA();
         String actualTitle = driver.getTitle();
@@ -131,7 +136,7 @@ public class SearchBarTest extends TestBase {
         Thread.sleep(2000);
         homePage.clickSearchBarField();
         Thread.sleep(2000);
-        searchPage.enterSearchBar("Blast Sekolah QA 13");
+        homePage.enterSearchBar("Blast Sekolah QA 13");
         Thread.sleep(2000);
         searchPage.clickGroupchatSQA();
         String actualTitle = driver.getTitle();
@@ -146,7 +151,7 @@ public class SearchBarTest extends TestBase {
         Thread.sleep(2000);
         homePage.clickSearchBarField();
         Thread.sleep(2000);
-        searchPage.enterSearchBar("Blast Your Big Project Here B-2 ");
+        homePage.enterSearchBar("Blast Your Big Project Here B-2 ");
         Thread.sleep(2000);
         searchPage.clickGroupchatSQA();
         String actualTitle = driver.getTitle();
@@ -162,7 +167,7 @@ public class SearchBarTest extends TestBase {
         Thread.sleep(2000);
         homePage.clickSearchBarField();
         Thread.sleep(2000);
-        searchPage.enterSearchBar("Blast Your Big Project Here B-1 ");
+        homePage.enterSearchBar("Blast Your Big Project Here B-1 ");
         Thread.sleep(2000);
         searchPage.clickGroupchatSQA();
         String actualTitle = driver.getTitle();

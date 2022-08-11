@@ -34,6 +34,10 @@ public class HomePage extends TestBase {
     public void clickSearchBarField() {
         driver.findElement(searchBarField).click();
     }
+
+    public void enterSearchBar(String search) {
+        driver.findElement(searchBarField).sendKeys(search);
+    }
     public void clickNavbarDrpDwnIcon() {
         driver.findElement(navbarDrpDwnIcon).click();
     }

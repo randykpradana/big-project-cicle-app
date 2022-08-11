@@ -1,14 +1,16 @@
 package com.berdua.pages;
 
+import com.berdua.base.TestBase;
 import org.openqa.selenium.By;
 
 import static com.berdua.base.TestBase.driver;
 
-public class SearchPage {
+public class SearchPage extends TestBase {
 
     //Page Factory
     By searchBar = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[1]/input");
-    By teamSekolahQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[1]");
+//    By teamSekolahQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[1]");
+    By teamSekolahQA = By.partialLinkText("Sekolah QA 13");
     By teamB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[2]/div/div[2]/h1");
     By teamB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[3]/div/div[2]/h1");
     By GroupchatSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]/div[2]/h1");
@@ -31,9 +33,13 @@ public class SearchPage {
     By DocsB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[3]/div/div[1]/div[2]/h1");
 
     //Action
-    public void clickSearchBar() {driver.findElement(searchBar).click();}
-    public void enterSearchBar(String search) {driver.findElement(searchBar).sendKeys(search);}
-    public void clickTeamSekolahQA() {driver.findElement(teamSekolahQA).click();}
+    public void clickSearchBar() {
+        driver.findElement(searchBar).click();
+    }
+
+    public void clickTeamSekolahQA() {
+        driver.findElement(teamSekolahQA).click();
+    }
     public void clickTeamB2() {driver.findElement(teamB2).click();}
     public void clickTeamB1() {driver.findElement(teamB1).click();}
     public void clickGroupchatSQA() {driver.findElement(GroupchatSQA).click();}
