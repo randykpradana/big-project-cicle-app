@@ -1,27 +1,24 @@
 package com.berdua.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static com.berdua.base.TestBase.driver;
+
 public class TeamPage {
     // Page Factory
-    @FindBy(xpath = "//*[@id=\"root\"]/div[3]/div[1]/div[1]/a/div")
-    WebElement groupChatWidget;
-    @FindBy(name = "//*[@id=\"root\"]/div[3]/div[1]/div[2]/a/div")
-    WebElement blastWidget;
-    @FindBy(name = "//*[@id=\"root\"]/div[3]/div[2]/div[1]/a/div")
-    WebElement boardWidget;
+    By groupChatWidget = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[1]/a/div");
+    By blastWidget = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]");
+    By boardWidget = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div[1]/a/div");
     // Actions
-    public TeamPage clickGroupChatWidget() {
-        groupChatWidget.click();
-        return new TeamPage();
+    public void clickGroupChatWidget() {
+        driver.findElement(groupChatWidget).click();
     }
-    public TeamPage clickBlastWidget() {
-        blastWidget.click();
-        return new TeamPage();
+    public void clickBlastWidget() {
+        driver.findElement(blastWidget).click();
     }
-    public TeamPage clickBoardWidget() {
-        boardWidget.click();
-        return new TeamPage();
+    public void clickBoardWidget() {
+        driver.findElement(boardWidget).click();
     }
 }
