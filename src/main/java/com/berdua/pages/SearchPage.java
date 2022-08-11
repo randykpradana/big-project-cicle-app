@@ -9,12 +9,19 @@ public class SearchPage {
     //Page Factory
     By searchBar = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[1]/input");
     By teamSekolahQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[1]/div/div[2]/h1");
+    By SekolahQALabel = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[1]/div/nav/ol/li[3]/div/div/span");
     By teamB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[2]/div/div[2]/h1");
+    By B2Label = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[1]/div/nav/ol/li[3]/div/div/span");
     By teamB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[3]/div/div[2]/h1");
+    By B1Label = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[1]/div/nav/ol/li[3]/div/div/span");
     By GroupchatSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]/div[2]/h1");
+    By GcSQALabel = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[2]/div[1]/h1");
     By GroupchatB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
+    By GcB2Label = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[2]/div[1]/h1");
     By GroupchatB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
+    By GcB1Label = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[2]/div[1]/h1");
     By BlastSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]");
+    By BlastSQALabel = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div/div/div/div[1]/a/div");
     By BlastB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
     By BlastB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
     By ScheduleSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]/div[2]/h1");
@@ -34,6 +41,7 @@ public class SearchPage {
     public void clickSearchBar() {driver.findElement(searchBar).click();}
     public void enterSearchBar(String search) {driver.findElement(searchBar).sendKeys(search);}
     public void clickTeamSekolahQA() {driver.findElement(teamSekolahQA).click();}
+
     public void clickTeamB2() {driver.findElement(teamB2).click();}
     public void clickTeamB1() {driver.findElement(teamB1).click();}
     public void clickGroupchatSQA() {driver.findElement(GroupchatSQA).click();}
