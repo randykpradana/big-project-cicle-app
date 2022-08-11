@@ -47,10 +47,10 @@ public class BlastPage {
     /**
      * Text Formatting
      */
-    By boldIcon = By.id("//*[@id=\"bold-2\"]");
-    By italicIcon = By.xpath("//*[@id=\"italic-2\"]");
-    By strikethroughIcon = By.xpath("//*[@id=\"strikeThrough-8\"]/svg");
-    By bgColorIcon = By.xpath("//*[@id=\"backgroundColor-8\"]/svg");
+    By boldIcon = By.id("bold-1");
+    By italicIcon = By.id("italic-1");
+    By strikethroughIcon = By.id("strikeThrough-1");
+    By bgColorIcon = By.id("backgroundColor-1");
     By greenBgColor = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[10]/div[1]/span[1]");
     By trashBgColor = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[10]/div[1]/span[28]");
     By fontSizeDrpDwn = By.xpath("//*[@id=\"fontSize-8\"]/svg");
