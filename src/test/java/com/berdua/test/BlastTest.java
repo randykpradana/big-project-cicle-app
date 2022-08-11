@@ -210,15 +210,12 @@ public class BlastTest extends TestBase {
         blastPage.enterPostTitleField(prop.getProperty("titleField"));
         Thread.sleep(2000);
         blastPage.clickBoldIcon();
-        //WebElement bold = driver.findElement(By.className("fr-command fr-btn"));
-        //((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute('aria-pressed',true);", bold);
-        Thread.sleep(1000);
         blastPage.enterPostStoryField(prop.getProperty("storyField"));
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         org.testng.Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 9)
@@ -238,9 +235,6 @@ public class BlastTest extends TestBase {
         blastPage.enterPostTitleField(prop.getProperty("titleField"));
         Thread.sleep(2000);
         blastPage.clickItalicIcon();
-        //WebElement bold = driver.findElement(By.className("fr-command fr-btn"));
-        //((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute('aria-pressed',true);", bold);
-        Thread.sleep(1000);
         blastPage.enterPostStoryField(prop.getProperty("storyField"));
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -266,9 +260,6 @@ public class BlastTest extends TestBase {
         blastPage.enterPostTitleField(prop.getProperty("titleField"));
         Thread.sleep(2000);
         blastPage.clickStrikethroughIcon();
-        //WebElement bold = driver.findElement(By.className("fr-command fr-btn"));
-        //((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute('aria-pressed',true);", bold);
-        Thread.sleep(1000);
         blastPage.enterPostStoryField(prop.getProperty("storyField"));
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
