@@ -33,7 +33,7 @@ public class BlastPage {
      * Create Blast
      */
     By createBlastLabel = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[2]/div[1]/h1");
-    By postTitleField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div");
+    By postTitleField = By.cssSelector("#root > div.Main_container__39jS7 > div.Main_mainCol__3MC7n > div > div > div.CreateBlastPage_headerSection__hFvYv > div");
     By postStoryField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div");
     /**
      * Text Formatting
@@ -131,11 +131,14 @@ public class BlastPage {
     public void clickCreateBlastBarBtn() {
         driver.findElement(createBlastBarBtn).click();
     }
-    public void displayBlastsLabel() {
-        driver.findElement(blastsLabel).isDisplayed();
+    public String validateBlastsLabel() {
+        return driver.getTitle();
     }
     public void clickPostContainer() {
         driver.findElement(postContainer).click();
+    }
+    public void clickThreeDotsIcon() {
+        driver.findElement(threeDotsIcon).click();
     }
     public void clickArchiveIcon() {
         driver.findElement(archiveIcon).click();
@@ -149,8 +152,8 @@ public class BlastPage {
     public void clickCheersIcon() {
         driver.findElement(cheersIcon).click();
     }
-    public void enterCheersField() {
-        driver.findElement(cheersField).sendKeys();
+    public void enterCheersField(String cheers) {
+        driver.findElement(cheersField).sendKeys(cheers);
     }
     public void clickCheersEmoteIcon() {
         driver.findElement(cheersEmoteIcon).click();
@@ -167,8 +170,8 @@ public class BlastPage {
     public void clickAddNewCommentField() {
         driver.findElement(addNewCommentField).click();
     }
-    public void enterCommentField() {
-        driver.findElement(commentField).sendKeys();
+    public void enterCommentField(String comment) {
+        driver.findElement(commentField).sendKeys(comment);
     }
     public void clickPostButton() {
         driver.findElement(postButton).click();
@@ -179,11 +182,11 @@ public class BlastPage {
     public void displayCreateBlastLabel() {
         driver.findElement(createBlastLabel).isDisplayed();
     }
-    public void enterPostTitleField() {
-        driver.findElement(postTitleField).sendKeys();
+    public void enterPostTitleField(String title) {
+        driver.findElement(postTitleField).getAttribute("Type a title...");
     }
-    public void enterPostStoryField() {
-        driver.findElement(postStoryField).sendKeys();
+    public void enterPostStoryField(String story) {
+        driver.findElement(postStoryField).sendKeys(story);
     }
     /**
      * Text Formatting

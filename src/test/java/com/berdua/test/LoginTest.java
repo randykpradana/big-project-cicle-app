@@ -16,7 +16,7 @@ public class LoginTest extends TestBase {
     }
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         initialization();
         loginPage = new LoginPage();
     }
