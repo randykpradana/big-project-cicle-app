@@ -20,4 +20,29 @@ public class PrivateChatPage {
         driver.findElement(pvtChatsLabel).isDisplayed();
         return driver.findElement(pvtChatsLabel).getText();
     }
+    public void enterSearchField(String profileName) {
+        driver.findElement(searchField).sendKeys(profileName);
+    }
+    public void clickMsgIcon() {
+        driver.findElement(msgIcon).click();
+    }
+    public String validateContactsLabel() {
+        driver.findElement(contactsLabel).isDisplayed();
+        return driver.findElement(contactsLabel).getText();
+    }
+    public void clickAttachIcon() {
+        driver.findElement(attachIcon).click();
+    }
+    public void clickSendIcon() {
+        driver.findElement(sendIcon).click();
+    }
+    public void clickMsgDrpDwn() {
+        driver.findElement(msgDrpDwn).click();
+    }
+    public void clickDltMsgLabel() {
+        driver.findElement(dltMsgLabel).click();
+    }
+    public void clickDownloadLink() {
+        driver.findElement(downloadLink).click();
+    }
 }
