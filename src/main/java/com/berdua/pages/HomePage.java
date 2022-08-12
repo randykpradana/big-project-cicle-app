@@ -7,9 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends TestBase {
+
     By teamCard = By.xpath("//*[@id=\"root\"]/div[3]/div[4]/a[1]");
-    @FindBy(xpath = "/html/body/div[2]/div[3]/div/div/div[2]/div[3]/div/div/div[2]/div/p")
-    WebElement company;
     By profileIcon = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[4]/div/span");
     By privateChatIcon = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[5]/div/div[1]/div[1]/a/div/div/svg");
     By searchBarField = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[1]/input");
