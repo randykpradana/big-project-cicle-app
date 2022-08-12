@@ -5,10 +5,10 @@ import com.berdua.pages.BlastPage;
 import com.berdua.pages.HomePage;
 import com.berdua.pages.LoginPage;
 import com.berdua.pages.TeamPage;
-import org.testng.Assert;
+import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -26,8 +26,12 @@ public class BlastTest extends TestBase {
 
     @BeforeMethod
     public void setUp() throws InterruptedException {
+        System.out.println("Test is started");
         initialization();
         loginPage = new LoginPage();
+        homePage = new HomePage();
+        teamPage = new TeamPage();
+        blastPage = new BlastPage();
 
         loginPage.clickLoginButton();
         Thread.sleep(1000);
@@ -38,30 +42,24 @@ public class BlastTest extends TestBase {
         loginPage.enterPasswordField(prop.getProperty("password"));
         Thread.sleep(1000);
         loginPage.clickPassNextButton();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         loginPage.selectCompanyLabel();
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         Assert.assertEquals(loginPage.validateDashboard(), "Home");
     }
     @Test(priority = 1)
     public void B01_User_directed_to_Blast_page_when_select_Blast_on_dropdown_navigation_bar() throws InterruptedException {
-        homePage = new HomePage();
-        blastPage = new BlastPage();
 
         homePage.clickTeamCard();
-        System.out.println();
         Thread.sleep(2000);
         homePage.clickNavbarDrpDwnIcon();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         homePage.selectBlastDrpDwn();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Assert.assertEquals(blastPage.validateBlastsLabel(), "Blasts");
     }
     @Test(priority = 2)
     public void B02_User_directed_to_Create_a_Blast_page_when_click_Create_Post_bar_button() throws InterruptedException {
-        homePage = new HomePage();
-        teamPage = new TeamPage();
-        blastPage = new BlastPage();
 
         homePage.clickTeamCard();
         Thread.sleep(2000);
@@ -71,13 +69,11 @@ public class BlastTest extends TestBase {
 
         blastPage.clickCreateBlastBarBtn();
         Thread.sleep(2000);
+
         Assert.assertEquals(blastPage.validateCreateBlastLabel(), "Create a Blast");
     }
     @Test(priority = 3)
     public void B03_User_create_a_new_post_with_all_completed_fields() throws InterruptedException {
-        homePage = new HomePage();
-        teamPage = new TeamPage();
-        blastPage = new BlastPage();
 
         homePage.clickTeamCard();
         Thread.sleep(2000);
@@ -94,14 +90,11 @@ public class BlastTest extends TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 4)
     public void B04_User_cannot_create_a_new_post_if_leaves_Title_field_empty() throws InterruptedException {
-        homePage = new HomePage();
-        teamPage = new TeamPage();
-        blastPage = new BlastPage();
 
         homePage.clickTeamCard();
         Thread.sleep(2000);
@@ -118,14 +111,11 @@ public class BlastTest extends TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Assert.assertEquals(blastPage.validateErrorPopUpMsg(), "Field parameter not complete.");
     }
     @Test(priority = 5)
     public void B05_User_can_still_create_a_new_post_if_leaves_Story_field_empty() throws InterruptedException {
-        homePage = new HomePage();
-        teamPage = new TeamPage();
-        blastPage = new BlastPage();
 
         homePage.clickTeamCard();
         Thread.sleep(2000);
@@ -141,14 +131,11 @@ public class BlastTest extends TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 6)
     public void B06_User_search_emoticons_by_typing_emoticons_name() throws InterruptedException {
-        homePage = new HomePage();
-        teamPage = new TeamPage();
-        blastPage = new BlastPage();
 
         homePage.clickTeamCard();
         Thread.sleep(2000);
@@ -168,14 +155,11 @@ public class BlastTest extends TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 7)
     public void B07_User_can_change_emoticon_color_by_clicking_color_label() throws InterruptedException {
-        homePage = new HomePage();
-        teamPage = new TeamPage();
-        blastPage = new BlastPage();
 
         homePage.clickTeamCard();
         Thread.sleep(2000);
@@ -191,14 +175,9 @@ public class BlastTest extends TestBase {
         Thread.sleep(2000);
         blastPage.clickBlackLabel();
         Thread.sleep(2000);
-        WebElement scroll = driver.findElement(By.cssSelector("#root > div.Main_container__39jS7 > div.Main_mainCol__3MC7n > div > div > div.CreateBlastPage_headerSection__hFvYv > div > div > aside > div.content-wrapper > section"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
     }
     @Test(priority = 8)
     public void B08_User_can_create_a_new_post_with_Bold_text_formatting() throws InterruptedException {
-        homePage = new HomePage();
-        teamPage = new TeamPage();
-        blastPage = new BlastPage();
 
         homePage.clickTeamCard();
         Thread.sleep(2000);
@@ -208,10 +187,11 @@ public class BlastTest extends TestBase {
 
         blastPage.clickCreateBlastBarBtn();
         Thread.sleep(2000);
-        blastPage.enterPostTitleField(prop.getProperty("titleField"));
+        blastPage.enterPostTitleField("Big Project");
         Thread.sleep(2000);
+        blastPage.clickStoryField();
         blastPage.clickBoldIcon();
-        blastPage.enterPostStoryField(prop.getProperty("storyField"));
+        blastPage.enterPostStoryField("this is my story");
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
@@ -241,7 +221,7 @@ public class BlastTest extends TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 10)
@@ -266,11 +246,143 @@ public class BlastTest extends TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
-        Thread.sleep(4000);
+        Thread.sleep(3000);
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
+    }
+    @Test
+    public void B25_User_insert_file_by_drag_and_drop() throws InterruptedException {
+
+    }
+    @Test
+    public void B26_User_insert_file_by_click_browse_file() throws InterruptedException {
+
+    }
+    @Test
+    public void B27_User_insert_file_more_than_10_mb() throws InterruptedException {
+
+    }
+    @Test
+    public void B28_User_insert_file_with_valid_url() throws InterruptedException {
+        homePage = new HomePage();
+        teamPage = new TeamPage();
+        blastPage = new BlastPage();
+
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickInsertFilesIcon();
+        Thread.sleep(2000);
+        blastPage.clickByUrl();
+        Thread.sleep(2000);
+        blastPage.enterByUrlField(prop.getProperty("fileUrl"));
+        Thread.sleep(2000);
+        blastPage.clickAddUrlButton();
+        Thread.sleep(2000);
+        Assert.assertEquals(blastPage.validateInsertedLink(), "Url entered is invalid. Please try again.");
+        Thread.sleep(3000);
+    }
+    @Test
+    public void B29_User_insert_file_with_invalid_url() throws InterruptedException {
+        homePage = new HomePage();
+        teamPage = new TeamPage();
+        blastPage = new BlastPage();
+
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickInsertFilesIcon();
+        Thread.sleep(2000);
+        blastPage.clickByUrl();
+        Thread.sleep(2000);
+        blastPage.enterByUrlField(prop.getProperty("invFileUrl"));
+        Thread.sleep(2000);
+        blastPage.clickAddUrlButton();
+        Thread.sleep(2000);
+
+        WebElement invalidMsg = driver.findElement(By.className("fr-message"));
+        String expectedText = "Url entered is invalid. Please try again.";
+        Assert.assertEquals(expectedText, invalidMsg.getText());
+        System.out.println("Error message is displayed");
+        //Assert.assertEquals(blastPage.validateInvInsertedLink(), "Url entered is invalid. Please try again.");
+    }
+    @Test
+    public void B30_User_delete_inserted_file() throws InterruptedException {
+
+    }
+    @Test
+    public void B31_User_upload_inserted_file_to_story_field() throws InterruptedException {
+
+    }
+    @Test
+    public void B32_User_insert_file_with_valid_embedded_code() throws InterruptedException {
+        homePage = new HomePage();
+        teamPage = new TeamPage();
+        blastPage = new BlastPage();
+
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickInsertFilesIcon();
+        Thread.sleep(2000);
+        blastPage.clickEmbedCode();
+        Thread.sleep(2000);
+        blastPage.enterEmbedCodeField(prop.getProperty("validEmbedCode"));
+        Thread.sleep(2000);
+        blastPage.clickInsertEmbedButton();
+        Thread.sleep(4000);
+
+        // Validate inserted file with embedded code is displayed on Story field
+        WebElement insValidEmbedCode = driver.findElement(By.id("fr-inserted-file"));
+        Assert.assertTrue(insValidEmbedCode.isDisplayed());
+        System.out.println("Inserted file with valid embedded code is displayed");
+    }
+    @Test
+    public void B33_User_insert_file_with_invalid_embedded_code() throws InterruptedException {
+        homePage = new HomePage();
+        teamPage = new TeamPage();
+        blastPage = new BlastPage();
+
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickInsertFilesIcon();
+        Thread.sleep(2000);
+        blastPage.clickEmbedCode();
+        Thread.sleep(2000);
+        blastPage.enterEmbedCodeField(prop.getProperty("invEmbedCode"));
+        Thread.sleep(2000);
+        blastPage.clickInsertEmbedButton();
+        Thread.sleep(4000);
+
+        // Validate pop up error message
+        WebElement invalidMsg = driver.findElement(By.className("fr-message"));
+        String expectedText = "Something went wrong. Please try again.";
+        Assert.assertEquals(expectedText, invalidMsg.getText());
+        System.out.println("Error message is displayed");
     }
     @AfterMethod
     public void tearDown() {
+        System.out.println("Test is finished");
         driver.quit();
     }
 }

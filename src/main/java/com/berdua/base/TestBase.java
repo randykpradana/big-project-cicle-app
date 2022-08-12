@@ -23,8 +23,6 @@ public class TestBase {
             prop = new Properties();
             FileInputStream ip = new FileInputStream("src/main/java/com/berdua/config/config.properties");
             prop.load(ip);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -90,6 +90,8 @@ public class BlastPage {
     By byUrl = By.id("filesByURL-1");
     By byUrlField = By.id("fr-files-by-url-layer-text-1");
     By addUrlButton = By.xpath("//*[@id=\"fr-files-by-url-layer-1\"]/div[2]/button");
+    By insertedLink = By.xpath("//*[@id=\"fr-file-0\"]/div[1]/div[2]");
+    By invInsertedLink = By.className("fr-message");
     By embedCode = By.id("filesEmbed-1");
     By embedCodeField = By.id("fr-files-embed-layer-text1");
     By insertEmbedButton = By.xpath("//*[@id=\"fr-files-embed-layer-1\"]/div[2]/button");
@@ -236,6 +238,9 @@ public class BlastPage {
     public void emptyPostStoryField(String emptyStory) {
         driver.findElement(postStoryField).clear();
     }
+    public void clickStoryField(){
+        driver.findElement(postStoryField).click();
+    }
     public void clickPublishButton() {
         driver.findElement(publishButton).click();
     }
@@ -372,6 +377,14 @@ public class BlastPage {
     }
     public void clickAddUrlButton() {
         driver.findElement(addUrlButton).click();
+    }
+    public String validateInsertedLink() {
+        driver.findElement(insertedLink).isDisplayed();
+        return driver.findElement(insertedLink).getText();
+    }
+    public String validateInvInsertedLink() {
+        driver.findElement(invInsertedLink).isDisplayed();
+        return driver.findElement(invInsertedLink).getText();
     }
     public void clickEmbedCode() {
         driver.findElement(embedCode).click();

@@ -9,12 +9,13 @@ public class PrivateChatPage {
     By pvtChatsLabel = By.xpath("//*[@id=\"root\"]/div[2]/div/div[2]/div[1]/h1");
     By searchField = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[1]/div[2]/div/div[2]/input");
     By profileName = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]/div/div/div/div[1]/div[2]/div[1]/div[1]/p");
-    By highlightedPN = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]/div/div/div/div[1]/div[1]/div/span/img");
-    By noRecentCht = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]/div/div/div/span");
-    By msgIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[1]/div[1]/div[2]/div/svg");
+    By highlightedProfile = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]/div/div/div/div[1]/div[1]/div/span/img");
+    By noRecentChats = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]/div/div/div/span");
+    By msgIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[1]/div[1]/div[2]/div");
     By contactsLabel = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[1]/div[1]/div/h1");
     By contactName = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]/div/div/div/div/div[2]/div[1]/div[1]/p");
-    By attachIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div[3]/div/div[1]/div/svg");
+    By noMembersLabel = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]/div/span");
+    By attachIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div[3]/div/div[1]/div");
     By msgField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div[3]/div/div[2]/div/div/div");
     By sendIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div[3]/div/div[3]/div/div");
     By msgDrpDwn = By.xpath("//*[@id=\"list-messages-section\"]/div/div/div[1]/div/div/div[1]/div[1]/svg");
@@ -34,12 +35,12 @@ public class PrivateChatPage {
         driver.findElement(profileName).isDisplayed();
         return driver.findElement(profileName).getText();
     }
-    public void clickHighlightedPN() {
-        driver.findElement(highlightedPN).click();
+    public void clickHighlightedProfile() {
+        driver.findElement(highlightedProfile).click();
     }
-    public String validateProfileNotExist() {
-        driver.findElement(noRecentCht).isDisplayed();
-        return driver.findElement(noRecentCht).getText();
+    public String validateChatHistory() {
+        driver.findElement(noRecentChats).isDisplayed();
+        return driver.findElement(noRecentChats).getText();
     }
     public void clickMsgIcon() {
         driver.findElement(msgIcon).click();
@@ -53,8 +54,8 @@ public class PrivateChatPage {
         return driver.findElement(contactName).getText();
     }
     public String validateInvMemberName() {
-        driver.findElement(contactName).isDisplayed();
-        return driver.findElement(contactName).getText();
+        driver.findElement(noMembersLabel).isDisplayed();
+        return driver.findElement(noMembersLabel).getText();
     }
     public void clickAttachIcon() {
         driver.findElement(attachIcon).click();
