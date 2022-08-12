@@ -15,8 +15,7 @@ public class HomePage extends TestBase {
     By searchBarField = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[1]/input");
     By navbarDrpDwnIcon = By.xpath("//*[@id=\"root\"]/div[2]/div[2]/div/div/div[1]/div[1]/div[1]/p");
     By blastDrpDwn = By.xpath("//*[@id=\"root\"]/div[2]/div[2]/div/div/div[1]/div[2]/div/div/div/a[2]/div/p");
-
-    public HomePage() {
+        public HomePage() {
         PageFactory.initElements(driver, "/companies");
     }
     /**
@@ -39,11 +38,6 @@ public class HomePage extends TestBase {
     }
     public void selectBlastDrpDwn() {
         driver.findElement(blastDrpDwn).click();
-    }
-
-    public HomePage selectGroupChatDrpDwn() {
-        groupchatDrpDwn.click();
-        return new HomePage();
     }
 }
 

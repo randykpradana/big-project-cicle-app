@@ -15,7 +15,7 @@ public class GroupChatPage {
     By AttachFileIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[1]/div[2]/div/div[1]/div/svg");
     By IconRoot = By.xpath("//*[@id=\"list-groupChat-messages-section\"]/div/div/div[1]/div/div/div[1]/div[1]/svg");
     By DeleteMessage = By.xpath("//*[@id=\"list-groupChat-messages-section\"]/div/div/div[1]/div/div/div[1]/div[1]");
-    By MenuPopUpDelete = By.xpath("//*[@id=\"list-groupChat-messages-section\"]/div/div/div[1]/div/div/div[1]/div[1]/svg");
+    By MenuPopUpDelete = By.xpath("//*[@id=\"list-groupChat-messages-section\"]/div/div/div[2]/div/div/div[1]/div[1]/svg");
     By BtnDelete = By.xpath("/html/body/div[6]/div/div/div[3]/button/div");
 
     //title
