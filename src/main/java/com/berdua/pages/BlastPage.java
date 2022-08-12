@@ -16,6 +16,7 @@ public class BlastPage {
     By threeDotsIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div[2]/div/svg");
     By editIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div[2]/div[2]/div/div/div[1]/div[1]/svg");
     By archiveIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/svg");
+
     /**
      * Cheers
      */
@@ -24,26 +25,29 @@ public class BlastPage {
     By cheersEmoteIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div/div/div/div/div/div[3]/svg[1]");
     By cheersCheck = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div/div/div/div/div/div[3]/svg[2]");
     By cheersCancel = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div/div/div/div/div/div[3]/svg[3]");
+
     /**
      * Comment Section
      */
     By addNewCommentField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div/div/div[1]/div[2]/div[2]/div/input");
     By commentField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div/div[3]/span");
     By postButton = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div/div/div[1]/div[2]/div[2]/div[2]/button[2]/div/h1");
+
     /**
      * Create Blast
      */
     By createBlastLabel = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[2]/div[1]/h1");
-    By postTitleField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/textarea");
+    By titleField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/textarea");
     By titleEmoticon = By.cssSelector("#root > div.Main_container__39jS7 > div.Main_mainCol__3MC7n > div > div > div.CreateBlastPage_headerSection__hFvYv > div > svg");
     By emoteSearchField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[2]/input");
     By emoteColorLabel = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[2]/ul/li[1]/label");
     By blackColorLabel = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[2]/ul/li[6]/label");
-    By speakingEmoji = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[3]/section/ul[1]/li/button/img");
-    By postStoryField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div");
+    By speakingEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[3]/section/ul[1]/li/button/img");
+    By storyField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div");
     By publishButton = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[6]/button/div/h1");
     By successPopUpMsg = By.xpath("//*[@id=\"notistack-snackbar\"]");
     By errorPopUpMsg = By.xpath("//*[@id=\"notistack-snackbar\"]");
+
     /**
      * Text Formatting
      */
@@ -78,6 +82,7 @@ public class BlastPage {
     By decreaseQuo = By.xpath("//*[@id=\"dropdown-menu-quote-1\"]/div/div/ul/li[2]/a");
     By storyEmoticon = By.id("emoticons-1");
     By smileEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[12]/div[2]/span[17]");
+
     /**
      * Insert Files
      */
@@ -95,6 +100,7 @@ public class BlastPage {
     By embedCode = By.id("filesEmbed-1");
     By embedCodeField = By.id("fr-files-embed-layer-text1");
     By insertEmbedButton = By.xpath("//*[@id=\"fr-files-embed-layer-1\"]/div[2]/button");
+
     /**
      * Insert Link
      */
@@ -102,6 +108,7 @@ public class BlastPage {
     By insertUrlField = By.id("fr-link-insert-layer-url-1");
     By insertUrlText = By.id("fr-link-insert-layer-text-1");
     By insertUrlButton = By.xpath("//*[@id=\"fr-link-insert-layer-1\"]/div[3]/button");
+
     /**
      * More Rich
      */
@@ -122,11 +129,13 @@ public class BlastPage {
     By speCharacters = By.xpath("//*[@id=\"specialCharacters-3\"]/svg");
     By copyrightSign = By.id("specialCharacters-1");
     By horizontalLine = By.id("insertHR-1");
+
     /**
      * Undo & Redo
      */
     By undoIcon = By.id("undo-1");
     By redoIcon = By.id("redo-1");
+
     /**
      * Blast Auto Complete
      */
@@ -134,6 +143,7 @@ public class BlastPage {
     By dateManually = By.xpath("//*[@id=\"menu-\"]/div[3]/ul/li[2]");
     By autoComInDrpDwn = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div[2]/div[2]/div[2]/div/div");
     By threeDays = By.xpath("//*[@id=\"menu-\"]/div[3]/ul/li[2]");
+
     /**
      * Notified Members
      */
@@ -142,6 +152,7 @@ public class BlastPage {
     By selectAllCheckbox = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[4]/div/svg");
     By memberCheckbox = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[5]/div[1]/svg");
     By doneButton = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[1]/div");
+
     /**
      * Private
      */
@@ -150,6 +161,7 @@ public class BlastPage {
     public BlastPage() {
         PageFactory.initElements(driver, "/62e394ac341d713a982e2243/blasts/62e394ac341d713a982e224a");
     }
+
     /**
      * Blasts List Methods
      */
@@ -209,10 +221,10 @@ public class BlastPage {
         driver.findElement(createBlastLabel).isDisplayed();
         return driver.findElement(createBlastLabel).getText();
     }
-    public void enterPostTitleField(String title) {
-        driver.findElement(postTitleField).sendKeys(Keys.TAB);
-        driver.findElement(postTitleField).clear();
-        driver.findElement(postTitleField).sendKeys(title);
+    public void enterTitleField(String title) {
+        driver.findElement(titleField).sendKeys(Keys.TAB);
+        driver.findElement(titleField).clear();
+        driver.findElement(titleField).sendKeys(title);
     }
     public void clickTitleEmoticon() {
         driver.findElement(titleEmoticon).click();
@@ -226,20 +238,20 @@ public class BlastPage {
     public void clickBlackLabel() {
         driver.findElement(blackColorLabel).click();
     }
-    public void clickSpeakingEmoji() {
-        driver.findElement(speakingEmoji).click();
+    public void clickSpeakingEmoticon() {
+        driver.findElement(speakingEmoticon).click();
     }
-    public void emptyPostTitleField(String emptyTitle) {
-        driver.findElement(postTitleField).clear();
+    public void emptyTitleField(String emptyTitle) {
+        driver.findElement(titleField).clear();
     }
-    public void enterPostStoryField(String story) {
-        driver.findElement(postStoryField).sendKeys(story);
+    public void enterStoryField(String story) {
+        driver.findElement(storyField).sendKeys(story);
     }
-    public void emptyPostStoryField(String emptyStory) {
-        driver.findElement(postStoryField).clear();
+    public void emptyStoryField(String emptyStory) {
+        driver.findElement(storyField).clear();
     }
     public void clickStoryField(){
-        driver.findElement(postStoryField).click();
+        driver.findElement(storyField).click();
     }
     public void clickPublishButton() {
         driver.findElement(publishButton).click();
