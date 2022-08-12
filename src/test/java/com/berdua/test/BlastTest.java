@@ -5,6 +5,7 @@ import com.berdua.pages.BlastPage;
 import com.berdua.pages.HomePage;
 import com.berdua.pages.LoginPage;
 import com.berdua.pages.TeamPage;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -40,7 +41,7 @@ public class BlastTest extends TestBase {
         Thread.sleep(3000);
         loginPage.selectCompanyLabel();
         Thread.sleep(3000);
-        org.testng.Assert.assertEquals(loginPage.validateDashboard(), "Home");
+        Assert.assertEquals(loginPage.validateDashboard(), "Home");
     }
     @Test(priority = 1)
     public void B01_User_directed_to_Blast_page_when_select_Blast_on_dropdown_navigation_bar() throws InterruptedException {
@@ -54,7 +55,7 @@ public class BlastTest extends TestBase {
         Thread.sleep(4000);
         homePage.selectBlastDrpDwn();
         Thread.sleep(4000);
-        org.testng.Assert.assertEquals(blastPage.validateBlastsLabel(), "Blasts");
+        Assert.assertEquals(blastPage.validateBlastsLabel(), "Blasts");
     }
     @Test(priority = 2)
     public void B02_User_directed_to_Create_a_Blast_page_when_click_Create_Post_bar_button() throws InterruptedException {
@@ -70,7 +71,7 @@ public class BlastTest extends TestBase {
 
         blastPage.clickCreateBlastBarBtn();
         Thread.sleep(2000);
-        org.testng.Assert.assertEquals(blastPage.validateCreateBlastLabel(), "Create a Blast");
+        Assert.assertEquals(blastPage.validateCreateBlastLabel(), "Create a Blast");
     }
     @Test(priority = 3)
     public void B03_User_create_a_new_post_with_all_completed_fields() throws InterruptedException {
@@ -94,7 +95,7 @@ public class BlastTest extends TestBase {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
         Thread.sleep(4000);
-        org.testng.Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
+        Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 4)
     public void B04_User_cannot_create_a_new_post_if_leaves_Title_field_empty() throws InterruptedException {
@@ -118,7 +119,7 @@ public class BlastTest extends TestBase {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
         Thread.sleep(4000);
-        org.testng.Assert.assertEquals(blastPage.validateErrorPopUpMsg(), "Field parameter not complete.");
+        Assert.assertEquals(blastPage.validateErrorPopUpMsg(), "Field parameter not complete.");
     }
     @Test(priority = 5)
     public void B05_User_can_still_create_a_new_post_if_leaves_Story_field_empty() throws InterruptedException {
@@ -141,7 +142,7 @@ public class BlastTest extends TestBase {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
         Thread.sleep(4000);
-        org.testng.Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
+        Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 6)
     public void B06_User_search_emoticons_by_typing_emoticons_name() throws InterruptedException {
@@ -168,7 +169,7 @@ public class BlastTest extends TestBase {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
         Thread.sleep(4000);
-        org.testng.Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
+        Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 7)
     public void B07_User_can_change_emoticon_color_by_clicking_color_label() throws InterruptedException {
@@ -216,7 +217,7 @@ public class BlastTest extends TestBase {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
         Thread.sleep(2000);
-        org.testng.Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
+        Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 9)
     public void B09_User_can_create_a_new_post_with_Italic_text_formatting() throws InterruptedException {
@@ -241,7 +242,7 @@ public class BlastTest extends TestBase {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
         Thread.sleep(4000);
-        org.testng.Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
+        Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @Test(priority = 10)
     public void B10_User_can_create_a_new_post_with_Strikethrough_text_formatting() throws InterruptedException {
@@ -266,7 +267,7 @@ public class BlastTest extends TestBase {
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         blastPage.clickPublishButton();
         Thread.sleep(4000);
-        org.testng.Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
+        Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
     }
     @AfterMethod
     public void tearDown() {
