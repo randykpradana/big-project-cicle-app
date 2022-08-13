@@ -28,9 +28,11 @@ public class PrivateChatTest extends TestBase {
     @BeforeMethod
     public void setUp() throws InterruptedException {
         System.out.println("Test is started");
+
         spark.config().setTheme(Theme.DARK);
         spark.config().setDocumentTitle("MyReport");
         extent.attachReporter(spark);
+
         initialization();
         loginPage = new LoginPage();
         homePage = new HomePage();
@@ -49,7 +51,6 @@ public class PrivateChatTest extends TestBase {
         loginPage.selectCompanyLabel();
         Thread.sleep(2000);
         Assert.assertEquals(loginPage.validateDashboard(), "Home");
-        Thread.sleep(2000);
     }
     @Test(priority = 1)
     public void PC01_User_can_see_Private_Chats_page() throws InterruptedException {

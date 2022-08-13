@@ -22,26 +22,23 @@ public class LoginPage extends TestBase {
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
-    public LoginPage enterEmailField(String username) {
+    public void enterEmailField(String username) {
         driver.findElement(emailField).sendKeys(username);
-        return new LoginPage();
     }
-    public LoginPage clickLoginNextButton() {
+    public void clickLoginNextButton() {
         driver.findElement(loginNextButton).click();
-        return new LoginPage();
     }
-    public LoginPage enterPasswordField(String password) {
+    public void enterPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
-        return new LoginPage();
     }
-    public LoginPage clickPassNextButton() {
+    public void clickPassNextButton() {
         driver.findElement(passNextButton).click();
-        return new LoginPage();
     }
-    public LoginPage selectCompanyLabel() {
+    public void selectCompanyLabel() {
         driver.findElement(companyLabel).click();
-        return new LoginPage();
     }
+
+    // Validate
     public String validateDashboard() {
         return driver.getTitle();
     }
