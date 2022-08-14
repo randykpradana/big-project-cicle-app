@@ -26,9 +26,8 @@ public class PrivateChatTest extends TestBase {
     }
 
     @BeforeMethod
-    public void setUp() throws InterruptedException {
+    public void initialStart() throws InterruptedException {
         System.out.println("Test is started");
-
         spark.config().setTheme(Theme.DARK);
         spark.config().setDocumentTitle("MyReport");
         extent.attachReporter(spark);
@@ -39,68 +38,79 @@ public class PrivateChatTest extends TestBase {
         pvtChatPage = new PrivateChatPage();
 
         loginPage.clickLoginButton();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         loginPage.enterEmailField(prop.getProperty("username"));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         loginPage.clickLoginNextButton();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         loginPage.enterPasswordField(prop.getProperty("password"));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         loginPage.clickPassNextButton();
         Thread.sleep(2000);
         loginPage.selectCompanyLabel();
         Thread.sleep(2000);
+        // Validate
         Assert.assertEquals(loginPage.validateDashboard(), "Home");
+        System.out.println("User already logged in, landing on: " + loginPage.validateDashboard());
     }
     @Test(priority = 1)
     public void PC01_User_can_see_Private_Chats_page() throws InterruptedException {
-
+        System.out.println("Test ID: PC01");
+        // Steps
         homePage.clickProfileIcon();
         Thread.sleep(2000);
         homePage.clickPvtChatIcon();
         Thread.sleep(2000);
+        // Validate
         Assert.assertEquals(pvtChatPage.validatePvtChatsLabel(), "Private Chats");
         Thread.sleep(2000);
     }
     @Test(priority = 2)
     public void PC02_User_can_search_chat_history_by_typing_the_profile_name_on_Search_field() throws InterruptedException {
-
+        System.out.println("Test ID: PC02");
+        // Steps
         homePage.clickProfileIcon();
         Thread.sleep(2000);
         homePage.clickPvtChatIcon();
         Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("profileName"));
         Thread.sleep(2000);
+        // Validate
         Assert.assertEquals(pvtChatPage.validateProfileName(), "Randy Pradana_QA13");
         Thread.sleep(2000);
     }
     @Test(priority = 3)
     public void PC03_User_cannot_find_chat_history_if_the_profile_name_does_not_exists() throws InterruptedException {
-
+        System.out.println("Test ID: PC03");
+        // Steps
         homePage.clickProfileIcon();
         Thread.sleep(2000);
         homePage.clickPvtChatIcon();
         Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("invProfileName"));
         Thread.sleep(2000);
+        // Validate
         Assert.assertEquals(pvtChatPage.validateChatHistory(), "There is no recent chats");
         Thread.sleep(2000);
     }
     @Test(priority = 4)
     public void PC04_User_can_change_section_from_Recent_Chats_to_Contacts() throws InterruptedException {
-
+        System.out.println("Test ID: PC04");
+        // Steps
         homePage.clickProfileIcon();
         Thread.sleep(2000);
         homePage.clickPvtChatIcon();
         Thread.sleep(2000);
         pvtChatPage.clickMsgIcon();
         Thread.sleep(2000);
+        // Validate
         Assert.assertEquals(pvtChatPage.validateContactsSection(), "Contacts");
         Thread.sleep(2000);
     }
     @Test(priority = 5)
     public void PC05_User_can_search_team_members_by_profile_name_in_Contact_section() throws InterruptedException {
-
+        System.out.println("Test ID: PC05");
+        // Steps
         homePage.clickProfileIcon();
         Thread.sleep(2000);
         homePage.clickPvtChatIcon();
@@ -108,12 +118,14 @@ public class PrivateChatTest extends TestBase {
         pvtChatPage.clickMsgIcon();
         Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("memberName"));
-        Assert.assertEquals(pvtChatPage.validateMemberName(), "berdua testing");
+        // Validate
+        Assert.assertEquals(pvtChatPage.validateMemberName(), "randy testing");
         Thread.sleep(2000);
     }
     @Test(priority = 6)
     public void PC06_User_cannot_find_the_contacts_of_members_who_are_not_registered_as_part_of_the_team() throws InterruptedException {
-
+        System.out.println("Test ID: PC06");
+        // Steps
         homePage.clickProfileIcon();
         Thread.sleep(2000);
         homePage.clickPvtChatIcon();
@@ -121,12 +133,14 @@ public class PrivateChatTest extends TestBase {
         pvtChatPage.clickMsgIcon();
         Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("invMemberName"));
+        // Validate
         Assert.assertEquals(pvtChatPage.validateInvMemberName(), "There is no members");
         Thread.sleep(2000);
     }
     @Test(priority = 7)
     public void PC07_User_can_send_message_with_presentation_file_extensions_attachments() throws InterruptedException {
-
+        System.out.println("Test ID: PC07");
+        // Steps
         homePage.clickProfileIcon();
         Thread.sleep(2000);
         homePage.clickPvtChatIcon();
@@ -135,13 +149,15 @@ public class PrivateChatTest extends TestBase {
         Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("profileName"));
         Thread.sleep(2000);
-        pvtChatPage.clickHighlightedProfile();
+        //pvtChatPage.clickHighlightedProfile();
         Thread.sleep(2000);
         pvtChatPage.clickAttachIcon();
         Thread.sleep(2000);
+        // Validate
+
     }
     @AfterMethod
-    public void tearDown() {
+    public void endOfTest() {
         extent.flush();
         driver.quit();
     }

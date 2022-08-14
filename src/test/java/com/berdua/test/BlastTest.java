@@ -1,12 +1,13 @@
 package com.berdua.test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.berdua.base.TestBase;
 import com.berdua.pages.BlastPage;
 import com.berdua.pages.HomePage;
 import com.berdua.pages.LoginPage;
 import com.berdua.pages.TeamPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -20,6 +21,9 @@ public class BlastTest extends TestBase {
     TeamPage teamPage;
     BlastPage blastPage;
 
+    ExtentReports extent = new ExtentReports();
+    ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+
     public BlastTest() {
         super();
     }
@@ -27,8 +31,11 @@ public class BlastTest extends TestBase {
     @BeforeMethod
     public void initialStart() throws InterruptedException {
         System.out.println("Test starts");
-        initialization();
+        spark.config().setTheme(Theme.DARK);
+        spark.config().setDocumentTitle("MyReport");
+        extent.attachReporter(spark);
 
+        initialization();
         loginPage = new LoginPage();
         homePage = new HomePage();
         teamPage = new TeamPage();
@@ -176,7 +183,7 @@ public class BlastTest extends TestBase {
         Assert.assertNull(blastPage.validateDisplayedEmoticon());
         System.out.println("Searched emoticon is displayed");
     }
-    @Test(enabled = false)
+    @Test(priority = 7)
     public void B07_User_can_change_emoticon_color_by_clicking_color_label() throws InterruptedException {
         System.out.println("Test ID: B07");
         // Steps
@@ -192,7 +199,13 @@ public class BlastTest extends TestBase {
         Thread.sleep(2000);
         blastPage.clickBlackLabel();
         Thread.sleep(2000);
+        blastPage.enterEmoteSearchField("police");
+        Thread.sleep(2000);
+        blastPage.clickManEmoticon();
+        Thread.sleep(2000);
         // Validate
+        Assert.assertNull(blastPage.validateModifiedEmoticonColor());
+        System.out.println("Emoticon color is changed");
 
     }
     @Test(priority = 8)
@@ -211,6 +224,9 @@ public class BlastTest extends TestBase {
         blastPage.clickBoldIcon();
         blastPage.enterStoryField("this is my story");
         Thread.sleep(2000);
+        // Validate
+        Assert.assertTrue(true, blastPage.validateBoldText());
+        System.out.println("At this point the entered text should be bold: " + blastPage.validateBoldText());
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 250)");
         blastPage.clickPublishButton();
@@ -234,8 +250,11 @@ public class BlastTest extends TestBase {
         Thread.sleep(2000);
         blastPage.clickStoryField();
         blastPage.clickItalicIcon();
-        blastPage.enterStoryField(prop.getProperty("storyField"));
+        blastPage.enterStoryField("this is my story");
         Thread.sleep(2000);
+        // Validate
+        Assert.assertTrue(true, blastPage.validateItalicText());
+        System.out.println("At this point the entered text should be italic: " + blastPage.validateItalicText());
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 250)");
         blastPage.clickPublishButton();
@@ -259,8 +278,11 @@ public class BlastTest extends TestBase {
         Thread.sleep(2000);
         blastPage.clickStoryField();
         blastPage.clickStrikethroughIcon();
-        blastPage.enterStoryField(prop.getProperty("storyField"));
+        blastPage.enterStoryField("this is my story");
         Thread.sleep(2000);
+        // Validate
+        Assert.assertTrue(true, blastPage.validateStrikethroughText());
+        System.out.println("At this point the entered text should be strikethrough: " + blastPage.validateStrikethroughText());
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 250)");
         blastPage.clickPublishButton();
@@ -270,7 +292,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 11)
     public void B11_User_can_enter_data_on_Story_field_with_background_color() throws InterruptedException {
         System.out.println("Test ID: B11");
         // Steps
@@ -300,7 +322,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 12)
     public void B12_User_can_select_another_font_size_points() throws InterruptedException {
         System.out.println("Test ID: B12");
         // Steps
@@ -332,7 +354,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 13)
     public void B13_User_can_enter_data_on_Story_field_with_Underline_text_format() throws InterruptedException {
         System.out.println("Test ID: B13");
         // Steps
@@ -361,7 +383,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 14)
     public void B14_User_can_enter_data_on_story_field_with_Subscript_text_format() throws InterruptedException {
         System.out.println("Test ID: B14");
         // Steps
@@ -391,7 +413,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 15)
     public void B15_User_can_enter_data_on_story_field_with_Superscript_text_format() throws InterruptedException {
         System.out.println("Test ID: B15");
         // Steps
@@ -421,7 +443,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 16)
     public void B16_User_can_select_another_font_style() throws InterruptedException {
         System.out.println("Test ID: B16");
         // Steps
@@ -454,7 +476,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 17)
     public void B17_User_can_select_another_text_color() throws InterruptedException {
         System.out.println("Test ID: B17");
         // Steps
@@ -473,8 +495,7 @@ public class BlastTest extends TestBase {
         //blastPage.selectPurpleTextColor(); - ERROR: ELEMENT
         Thread.sleep(2000);
         // Validate
-        Assert.assertTrue(true, blastPage.validateSelectedFontStyle());
-        System.out.println("Selected font style: " + blastPage.validateSelectedFontSizePts());
+
         blastPage.enterStoryField("this is not a story");
         Thread.sleep(2000);
         blastPage.clickStoryField();
@@ -492,7 +513,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 18)
     public void B18_User_can_clear_all_text_formatting_that_has_been_used() throws InterruptedException {
         System.out.println("Test ID: B18");
         // Steps
@@ -536,7 +557,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 19)
     public void B19_User_enter_data_with_Ordered_List_formatting() throws InterruptedException {
         System.out.println("Test ID: B19");
         // Steps
@@ -565,7 +586,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 20)
     public void B20_User_enter_data_with_Unordered_List_formatting() throws InterruptedException {
         System.out.println("Test ID: B20");
         // Steps
@@ -594,7 +615,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 21)
     public void B21_User_select_another_Unordered_List_format_style() throws InterruptedException {
         System.out.println("Test ID: B21");
         // Steps
@@ -626,7 +647,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 22)
     public void B22_User_select_another_Paragraph_format_style() throws InterruptedException {
         System.out.println("Test ID: B22");
         // Steps
@@ -657,7 +678,7 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
+    @Test(priority = 23)
     public void B23_User_add_Quotes_text_formatting() throws InterruptedException {
         System.out.println("Test ID: B23");
         // Steps
@@ -689,8 +710,8 @@ public class BlastTest extends TestBase {
         Assert.assertEquals(blastPage.validateSuccessPopUpMsg(), "Create post successful");
         System.out.println("Success pop up message is displayed: " + blastPage.validateSuccessPopUpMsg());
     }
-    @Test
-    public void B24_User_enter_data_on_story_field_with_emoticons() throws InterruptedException {
+    @Test(priority = 24)
+    public void B24_User_enter_data_on_Story_field_with_emoticons() throws InterruptedException {
         System.out.println("Test ID: B24");
         // Steps
         homePage.clickTeamCard();
@@ -729,7 +750,7 @@ public class BlastTest extends TestBase {
     @Test(enabled = false)
     public void B27_User_insert_file_more_than_10_mb() throws InterruptedException {
     }
-    @Test(priority = 11)
+    @Test(priority = 28)
     public void B28_User_insert_file_with_valid_url() throws InterruptedException {
         System.out.println("Test ID: B28");
         // Steps
@@ -748,11 +769,10 @@ public class BlastTest extends TestBase {
         blastPage.clickAddUrlButton();
         Thread.sleep(2000);
         // Validate
-        //Assert.assertEquals(blastPage.validateInsertedLink(), "Url entered is invalid. Please try again.");
-        //Assert.assertEquals(blastPage.validateInsertedFile(), "Saturday, August 13, 2022");
-        System.out.println("Inserted file is displayed");
+        Assert.assertEquals(blastPage.validateInsFileByUrl(), "Sunday, August 14, 2022");
+        System.out.println("Inserted file is displayed with inserted date: " + blastPage.validateInsFileByUrl());
     }
-    @Test(priority = 12)
+    @Test(priority = 29)
     public void B29_User_insert_file_with_invalid_url() throws InterruptedException {
         System.out.println("Test ID: B29");
         // Steps
@@ -771,18 +791,67 @@ public class BlastTest extends TestBase {
         blastPage.clickAddUrlButton();
         Thread.sleep(2000);
         // Validate
-        Assert.assertEquals(blastPage.validateInvInsertedUrl(), "Url entered is invalid. Please try again.");
-        System.out.println("Error message is displayed: " + blastPage.validateInvInsertedUrl());
+        Assert.assertEquals(blastPage.validateInsFileByInvalidUrl(), "Url entered is invalid. Please try again.");
+        System.out.println("Error message is displayed: " + blastPage.validateInsFileByInvalidUrl());
     }
-    @Test(enabled = false)
+    @Test(priority = 30)
     public void B30_User_delete_inserted_file() throws InterruptedException {
+        System.out.println("Test ID: B30");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickInsertFilesIcon();
+        Thread.sleep(2000);
+        blastPage.clickByUrl();
+        Thread.sleep(2000);
+        blastPage.enterByUrlField(prop.getProperty("fileUrl"));
+        Thread.sleep(2000);
+        blastPage.clickAddUrlButton();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertEquals(blastPage.validateInsFileByUrl(), "Sunday, August 14, 2022");
+        System.out.println("Inserted file is displayed with inserted date: " + blastPage.validateInsFileByUrl());
+        Thread.sleep(2000);
+        blastPage.clickFileCheckBox();
+        blastPage.clickDeleteIcon();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertTrue(blastPage.validateEmptyInsertedSection());
+        System.out.println("At this point inserted file is deleted");
+    }
+    @Test(priority = 31)
+    public void B31_User_upload_inserted_file_to_Story_field() throws InterruptedException {
+        System.out.println("Test ID: B31");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickInsertFilesIcon();
+        Thread.sleep(2000);
+        blastPage.clickByUrl();
+        Thread.sleep(2000);
+        blastPage.enterByUrlField(prop.getProperty("fileUrl"));
+        Thread.sleep(2000);
+        blastPage.clickAddUrlButton();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertEquals(blastPage.validateInsFileByUrl(), "Sunday, August 14, 2022");
+        System.out.println("Inserted file is displayed with inserted date: " + blastPage.validateInsFileByUrl());
+        Thread.sleep(2000);
+        blastPage.clickFileCheckBox();
+        blastPage.clickInsertIcon();
+        Thread.sleep(2000);
+        // Validate
 
     }
-    @Test(enabled = false)
-    public void B31_User_upload_inserted_file_to_story_field() throws InterruptedException {
-
-    }
-    @Test(priority = 13)
+    @Test(priority = 32)
     public void B32_User_insert_file_with_valid_embedded_code() throws InterruptedException {
         System.out.println("Test ID: B32");
         // Steps
@@ -801,11 +870,10 @@ public class BlastTest extends TestBase {
         blastPage.clickInsertEmbedButton();
         Thread.sleep(2000);
         // Validate
-        WebElement insValidEmbedCode = driver.findElement(By.id("fr-inserted-file"));
-        Assert.assertTrue(insValidEmbedCode.isDisplayed());
+        Assert.assertTrue(blastPage.validateInsertedEmbedCodeFile());
         System.out.println("Inserted file with valid embedded code is displayed");
     }
-    @Test(priority = 14)
+    @Test(priority = 33)
     public void B33_User_insert_file_with_invalid_embedded_code() throws InterruptedException {
         System.out.println("Test ID: B33");
         // Steps
@@ -824,13 +892,209 @@ public class BlastTest extends TestBase {
         blastPage.clickInsertEmbedButton();
         Thread.sleep(2000);
         // Validate
-        WebElement invalidMsg = driver.findElement(By.className("fr-message"));
-        String expectedText = "Something went wrong. Please try again.";
-        Assert.assertEquals(expectedText, invalidMsg.getText());
-        System.out.println("Error message is displayed");
+        Assert.assertEquals(blastPage.validateErrorMsgBox(), "Something went wrong. Please try again.");
+        System.out.println("Inserted file with valid embedded code is displayed");
+    }
+    @Test(priority = 34)
+    public void B34_User_insert_link_with_url() throws InterruptedException {
+        System.out.println("Test ID: B34");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickInsertLinkIcon();
+        Thread.sleep(2000);
+        blastPage.enterInsertUrlField(prop.getProperty("urlField"));
+        Thread.sleep(2000);
+        blastPage.enterInsertUrlText(prop.getProperty("urlText"));
+        Thread.sleep(2000);
+        blastPage.clickInsertUrlButton();
+        // Validate
+        Assert.assertEquals(blastPage.validateInsertedLink(), "Sekolah QA");
+        System.out.println("Link is entered to the Story field");
+    }
+    @Test(priority = 35)
+    public void B36_User_insert_video_by_url() throws InterruptedException {
+        System.out.println("Test ID: B36");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickMoreRichIcon();
+        Thread.sleep(2000);
+        blastPage.clickInsertVideo();
+        Thread.sleep(2000);
+        blastPage.enterVideoUrlField(prop.getProperty("videoUrl"));
+        Thread.sleep(2000);
+        blastPage.clickAutoplayCheckbox();
+        blastPage.clickInsertVideoButton();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertTrue(blastPage.validateInsertedVideo());
+        System.out.println("Video is displayed on the Story field");
+    }
+    @Test(priority = 36)
+    public void B37_User_insert_table_on_Story_field() throws InterruptedException {
+        System.out.println("Test ID: B37");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickMoreRichIcon();
+        Thread.sleep(2000);
+        blastPage.clickInsertTable();
+        Thread.sleep(2000);
+        blastPage.selectTableFormat();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertTrue(blastPage.validateInsertedTableFormat());
+        System.out.println("Selected table format displayed on the Story field");
+    }
+    @Test(priority = 37)
+    public void B38_User_enter_data_on_Story_field_with_special_characters() throws InterruptedException {
+        System.out.println("Test ID: B38");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickMoreRichIcon();
+        Thread.sleep(2000);
+        blastPage.clickSpeCharacters();
+        Thread.sleep(2000);
+        blastPage.selectCopyrightSign();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertTrue(blastPage.validateSelectedSpeCharacters());
+        System.out.println("Selected special characters displayed on the Story field");
+    }
+    @Test(priority = 38)
+    public void B39_User_add_horizontal_line_on_Story_field() throws InterruptedException {
+        System.out.println("Test ID: B38");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.clickMoreRichIcon();
+        Thread.sleep(2000);
+        blastPage.clickHorizontalLine();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertTrue(blastPage.validateEnteredHorizontalLine());
+        System.out.println("Horizontal line is displayed on the Story field");
+    }
+    @Test(priority = 39)
+    public void B40_User_undo_entered_text() throws InterruptedException {
+        System.out.println("Test ID: B40");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.enterStoryField("leh uga u");
+        Thread.sleep(2000);
+        blastPage.clickUndoIcon();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertEquals(blastPage.validateUndoEnteredText(), "Tell your story here...");
+        System.out.println("Entered text can be undo: " + blastPage.validateUndoEnteredText());
+    }
+    @Test(priority = 40)
+    public void B41_User_redo_entered_text() throws InterruptedException {
+        System.out.println("Test ID: B41");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.enterStoryField("leh uga u");
+        Thread.sleep(2000);
+        blastPage.clickUndoIcon();
+        Thread.sleep(2000);
+        blastPage.clickRedoIcon();
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertEquals(blastPage.validateRedoEnteredText(), "leh uga u");
+        System.out.println("Entered text can be redo: " + blastPage.validateRedoEnteredText());
+    }
+    @Test(priority = 41)
+    public void B42_User_set_auto_complete_post_in_different_day_when_create_a_new_post() throws InterruptedException {
+        System.out.println("Test ID: B42");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.enterTitleField("risolnya kakak");
+        Thread.sleep(2000);
+        blastPage.enterStoryField("leh uga u");
+        Thread.sleep(2000);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 250)");
+        blastPage.clickAutoComInDrpDwn();
+        Thread.sleep(2000);
+        blastPage.selectThreeDays();
+        Thread.sleep(2000);
+        blastPage.clickPublishButton();
+        Thread.sleep(2000);
+        js.executeScript("window.scrollBy(0, -250);");
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertEquals(blastPage.validateAutoComInThreeDays(), "Aug 17");
+        System.out.println("Blast should be completed on: " + blastPage.validateAutoComInThreeDays());
+    }
+    @Test(priority = 42)
+    public void B43_User_set_due_date_manually_when_create_new_post() throws InterruptedException {
+        System.out.println("Test ID: B43");
+        // Steps
+        homePage.clickTeamCard();
+        Thread.sleep(2000);
+        teamPage.clickBlastWidget();
+        Thread.sleep(2000);
+        blastPage.clickCreateBlastBarBtn();
+        Thread.sleep(2000);
+        blastPage.enterTitleField("risolnya kakak");
+        blastPage.enterStoryField("leh uga u");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 250)");
+        blastPage.clickAutoComDrpDwn();
+        Thread.sleep(2000);
+        blastPage.selectDateManually();
+        Thread.sleep(2000);
+        blastPage.clickCalendarIcon();
+        Thread.sleep(2000);
+        blastPage.selectDate();
+        Thread.sleep(2000);
+        blastPage.clickPublishButton();
+        Thread.sleep(2000);
+        js.executeScript("window.scrollBy(0, -250);");
+        Thread.sleep(2000);
+        // Validate
+        Assert.assertEquals(blastPage.validateAutoComInSelectedDate(), "Aug 28");
+        System.out.println("Blast should be completed on: " + blastPage.validateAutoComInSelectedDate());
     }
     @AfterMethod
-    public void endOfTesting() throws InterruptedException {
+    public void endOfTest() throws InterruptedException {
         System.out.println("Test is finished");
         Thread.sleep(2000);
         driver.quit();

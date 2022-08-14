@@ -2,6 +2,7 @@ package com.berdua.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -32,6 +33,7 @@ public class BlastPage {
     By emoteColorLabel = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[2]/ul/li[1]/label");
     By blackColorLabel = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[2]/ul/li[6]/label");
     By speakingEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[3]/section/ul[1]/li/button/img");
+    By blackPolice = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[3]/section/ul[1]/li[3]/button/img");
     By storyField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div");
     By publishButton = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[6]/button/div/h1");
     // Text Formatting
@@ -101,9 +103,9 @@ public class BlastPage {
     By uploadFile = By.id("insertFile-1");
     By uplFileLayer = By.id("fr-file-upload-layer-1");
     By insertTable = By.id("insertTable-1");
-    By tableFormat = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[18]/div[2]/div[2]/span[3]");
-    By speCharacters = By.xpath("//*[@id=\"specialCharacters-3\"]/svg");
-    By copyrightSign = By.id("specialCharacters-1");
+    By tableFormat = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[9]/div[2]/div[2]/span[3]");
+    By speCharacters = By.id("specialCharacters-1");
+    By copyrightSign = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[9]/div[2]/span[9]");
     By horizontalLine = By.id("insertHR-1");
     // Undo & Redo
     By undoIcon = By.id("undo-1");
@@ -113,6 +115,8 @@ public class BlastPage {
     By dateManually = By.xpath("//*[@id=\"menu-\"]/div[3]/ul/li[2]");
     By autoComInDrpDwn = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div[2]/div[2]/div[2]/div/div");
     By threeDays = By.xpath("//*[@id=\"menu-\"]/div[3]/ul/li[2]");
+    By calendarIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div[2]/div[2]/div[2]/div/div/div/div/button");
+    By date = By.xpath("/html/body/div[3]/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div[5]/div[1]/button");
     // Notified Members
     By plusIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div/div[17]/svg");
     By searchMembersField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[3]/div/input");
@@ -122,14 +126,20 @@ public class BlastPage {
     // Private
     By pvtSwitchButton = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[5]/div[2]/label/span[1]/span[1]/input");
 
-    // Validation
+    // Validation - Blast
     By blastsLabel = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[2]/div[1]");
+    // Validation - Create Blast
     By createBlastLabel = By.xpath("//*[@id=\"root\"]/div[2]/div[1]/div[2]/div[1]/h1");
     By successPopUpMsg = By.xpath("//*[@id=\"notistack-snackbar\"]");
     By errorPopUpMsg = By.xpath("//*[@id=\"notistack-snackbar\"]");
+    // Validation - Title Field Emoticon
     By displayedEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[3]/section/ul[1]/li/button/img");
+    By modifiedEmoticonColor = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div/div/aside/div[3]/section/ul[1]/li[3]/button/img");
+    // Validation - Text Formatting
+    By boldText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p/strong");
+    By italicText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p/em");
+    By strikethroughText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p/s");
     By changedBgColor = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p/span");
-    By insertedFileDate = By.className("fr-file-date");
     By underlinedText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p/u");
     By subscriptedText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p/sub");
     By superscriptedText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p/sup");
@@ -139,10 +149,27 @@ public class BlastPage {
     By circleUndText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/ul/li");
     By alignCenterText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p");
     By quotedText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/blockquote/p");
+    // Validation - Story Field Emoticon
     By enteredEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p");
-    By insertedUrl = By.xpath("//*[@id=\"fr-file-0\"]/div[1]/div[2]");
-    By invInsertedUrl = By.className("fr-message");
-
+    // Validation - Insert File
+    By insFileByUrl = By.className("fr-file-date");
+    By insFileByInvalidUrl= By.className("fr-message");
+    By emptyUploadBoxSection = By.xpath("//*[@id=\"fr-files-by-url-layer-1\"]");
+    By validEmbedCode = By.id("fr-inserted-file");
+    By errorMsgBox = By.className("fr-message");
+    // Validation - Insert Link
+    By sekolahQA = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div[1]/p/a");
+    // Validation - More Rich
+    By insertedVideo = By.className("fr-draggable");
+    By insertedTable = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/table");
+    By selectedSpeCharacters = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p");
+    By enteredHorizontalLine = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/hr");
+    // Validation - Undo & Redo
+    By undoEnteredText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/span");
+    By redoEnteredText = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p");
+    // Validation - Auto Complete
+    By autoComInThreeDays = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div/div/div/div[1]/div[2]/div[1]/div[2]/div[2]/p");
+    By autoComInSelectedDate = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div/div/div/div[1]/div[2]/div[1]/div[2]/div[2]/p");
 
     // Initialize Objects
     public BlastPage() {
@@ -214,6 +241,9 @@ public class BlastPage {
     }
     public void clickSpeakingEmoticon() {
         driver.findElement(speakingEmoticon).click();
+    }
+    public void clickManEmoticon() {
+        driver.findElement(blackPolice).click();
     }
     public void emptyTitleField(String emptyTitle) {
         driver.findElement(titleField).clear();
@@ -360,9 +390,6 @@ public class BlastPage {
     public void clickInsertIcon() {
         driver.findElement(insertIcon).click();
     }
-    public void clickViewIcon() {
-        driver.findElement(viewIcon).click();
-    }
     public void clickDeleteIcon() {
         driver.findElement(deleteIcon).click();
     }
@@ -421,8 +448,8 @@ public class BlastPage {
     public void clickInsertVideo() {
         driver.findElement(insertVideo).click();
     }
-    public void enterVideoUrlField() {
-        driver.findElement(videoUrlField).click();
+    public void enterVideoUrlField(String videoUrl) {
+        driver.findElement(videoUrlField).sendKeys(videoUrl);
     }
     public void clickAutoplayCheckbox() {
         driver.findElement(autoplayCheckbox).click();
@@ -473,6 +500,12 @@ public class BlastPage {
     public void selectThreeDays() {
         driver.findElement(threeDays).click();
     }
+    public void clickCalendarIcon() {
+        driver.findElement(calendarIcon).click();
+    }
+    public void selectDate() {
+        driver.findElement(date).click();
+    }
 
     // Notified Members
     public void clickPlusIcon() {
@@ -496,11 +529,13 @@ public class BlastPage {
         driver.findElement(pvtSwitchButton).click();
     }
 
-    // Validation
+    // Validation - Blast
     public String validateBlastsLabel() {
         driver.findElement(blastsLabel).isDisplayed();
         return driver.findElement(blastsLabel).getText();
     }
+
+    // Validation - Create Blast
     public String validateCreateBlastLabel() {
         driver.findElement(createBlastLabel).isDisplayed();
         return driver.findElement(createBlastLabel).getText();
@@ -513,25 +548,33 @@ public class BlastPage {
         driver.findElement(errorPopUpMsg).isDisplayed();
         return driver.findElement(errorPopUpMsg).getText();
     }
+
+    // Validation - Title Field Emoticon
     public String validateDisplayedEmoticon() {
         driver.findElement(displayedEmoticon).isDisplayed();
         return driver.findElement(displayedEmoticon).getAttribute("");
     }
-    public String validateInsertedFileUrl() {
-        driver.findElement(insertedUrl).isDisplayed();
-        return driver.findElement(insertedUrl).getText();
+    public String validateModifiedEmoticonColor() {
+        driver.findElement(modifiedEmoticonColor).isDisplayed();
+        return driver.findElement(modifiedEmoticonColor).getAttribute("");
     }
-    public String validateInvInsertedUrl() {
-        driver.findElement(invInsertedUrl).isDisplayed();
-        return driver.findElement(invInsertedUrl).getText();
+
+    // Validation - Text Formatting
+    public String validateBoldText() {
+        driver.findElement(boldText).isDisplayed();
+        return driver.findElement(boldText).getText();
+    }
+    public String validateItalicText() {
+        driver.findElement(italicText).isDisplayed();
+        return driver.findElement(italicText).getText();
+    }
+    public String validateStrikethroughText() {
+        driver.findElement(strikethroughText).isDisplayed();
+        return driver.findElement(strikethroughText).getText();
     }
     public String validateChangedBgColor() {
         driver.findElement(changedBgColor).isDisplayed();
         return driver.findElement(changedBgColor).getText();
-    }
-    public String validateInsertedFile() {
-        driver.findElement(insertedFileDate).isDisplayed();
-        return driver.findElement(insertedFileDate).getText();
     }
     public String validateSelectedFontSizePts() {
         driver.findElement(fontSizePts).isSelected();
@@ -577,8 +620,76 @@ public class BlastPage {
         driver.findElement(quotedText).isDisplayed();
         return driver.findElement(quotedText).getText();
     }
+
+    // Validation - Story Field Emoticon
     public String validateEnteredEmoticon() {
         driver.findElement(enteredEmoticon).isDisplayed();
         return driver.findElement(enteredEmoticon).getText();
+    }
+
+    // Validation - Insert File
+    public String validateInsFileByUrl() {
+        driver.findElement(insFileByUrl).isDisplayed();
+        return driver.findElement(insFileByUrl).getText();
+    }
+    public String validateInsFileByInvalidUrl() {
+        driver.findElement(insFileByInvalidUrl).isDisplayed();
+        return driver.findElement(insFileByInvalidUrl).getText();
+    }
+    public boolean validateEmptyInsertedSection() {
+        driver.findElement(emptyUploadBoxSection).isDisplayed();
+        return true;
+    }
+    public boolean validateInsertedEmbedCodeFile() {
+        driver.findElement(validEmbedCode).isDisplayed();
+        return true;
+    }
+    public String validateErrorMsgBox() {
+        driver.findElement(errorMsgBox).isDisplayed();
+        return driver.findElement(errorMsgBox).getText();
+    }
+
+    // Validation - Insert Link
+    public String validateInsertedLink() {
+        driver.findElement(sekolahQA).isDisplayed();
+        return driver.findElement(sekolahQA).getText();
+    }
+
+    // Validation - More Rich
+    public boolean validateInsertedVideo() {
+        driver.findElement(insertedVideo).isDisplayed();
+        return true;
+    }
+    public boolean validateInsertedTableFormat() {
+        driver.findElement(insertedTable).isDisplayed();
+        return true;
+    }
+    public boolean validateSelectedSpeCharacters() {
+        driver.findElement(selectedSpeCharacters).isDisplayed();
+        return true;
+    }
+    public boolean validateEnteredHorizontalLine() {
+        driver.findElement(enteredHorizontalLine).isDisplayed();
+        return true;
+    }
+
+    // Validation - Undo & Redo
+    public String validateUndoEnteredText() {
+        driver.findElement(undoEnteredText).isDisplayed();
+        return driver.findElement(undoEnteredText).getText();
+    }
+    public String validateRedoEnteredText() {
+        driver.findElement(redoEnteredText).isDisplayed();
+        return driver.findElement(redoEnteredText).getText();
+    }
+
+    // Validation Auto Complete
+    public String validateAutoComInThreeDays() {
+        driver.findElement(autoComInThreeDays).isDisplayed();
+        return driver.findElement(autoComInThreeDays).getText();
+    }
+    public String validateAutoComInSelectedDate() {
+        driver.findElement(autoComInSelectedDate).isDisplayed();
+        return driver.findElement(autoComInSelectedDate).getText();
     }
 }
