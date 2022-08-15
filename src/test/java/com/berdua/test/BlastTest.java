@@ -73,6 +73,7 @@ public class BlastTest extends TestBase {
         String actualTitle = driver.getTitle();
         String expectedTitle = "New post";
         Assert.assertEquals(expectedTitle, actualTitle);
+        Thread.sleep(5000);
     }
     @Test(priority = 3)
     public void B03_User_create_a_new_post_with_all_completed_fields() throws InterruptedException {
