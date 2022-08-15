@@ -36,23 +36,19 @@ public class PrivateChatTest extends TestBase {
     @BeforeMethod
     public void initialStart() throws InterruptedException {
         System.out.println("Test starts");
+        Thread.sleep(2000);
         initialization();
+
         loginPage = new LoginPage();
         homePage = new HomePage();
         pvtChatPage = new PrivateChatPage();
 
         loginPage.clickLoginButton();
-        Thread.sleep(2000);
         loginPage.enterEmailField(prop.getProperty("username"));
-        Thread.sleep(2000);
         loginPage.clickLoginNextButton();
-        Thread.sleep(2000);
         loginPage.enterPasswordField(prop.getProperty("password"));
-        Thread.sleep(2000);
         loginPage.clickPassNextButton();
-        Thread.sleep(2000);
         loginPage.selectCompanyLabel();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(loginPage.validateDashboard(), "Home");
         System.out.println("User already logged in, landing on: " + loginPage.validateDashboard());
@@ -63,9 +59,7 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC01");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validatePvtChatsLabel(), "Private Chats");
         System.out.println("System can display: " + pvtChatPage.validatePvtChatsLabel());
@@ -77,11 +71,8 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC02");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("profileName"));
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateProfileName(), "Randy Pradana_QA13");
         System.out.println("System show the profile: " + pvtChatPage.validateProfileName());
@@ -93,11 +84,8 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC03");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("invProfileName"));
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateChatHistory(), "There is no recent chats");
         System.out.println("System show the message: " + pvtChatPage.validateChatHistory());
@@ -109,11 +97,8 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC04");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.clickMsgIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateContactsSection(), "Contacts");
         System.out.println("System can display: " + pvtChatPage.validateContactsSection());
@@ -125,11 +110,8 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC05");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.clickMsgIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("memberName"));
         // Validate
         Assert.assertEquals(pvtChatPage.validateMemberName(), "randy testing");
@@ -141,11 +123,8 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC06");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.clickMsgIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField(prop.getProperty("invMemberName"));
         // Validate
         Assert.assertEquals(pvtChatPage.validateInvMemberName(), "There is no members");
@@ -157,16 +136,11 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC15");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.clickMsgTextBox();
         pvtChatPage.clickDownloadLink();
-        Thread.sleep(2000);
         // Validate
     }
     @Test(priority = 8)
@@ -175,18 +149,12 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC16");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.clickMsgTextBox();
         pvtChatPage.clickMsgDrpDwn();
-        Thread.sleep(2000);
         pvtChatPage.clickDltMsgLabel();
-        Thread.sleep(2000);
         pvtChatPage.clickDeleteButton();
         // Validate
         Assert.assertEquals(pvtChatPage.validateSuccessDeleteMsg(), "Delete chat message success");
@@ -198,21 +166,13 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC17");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickEmoticonsIcon();
-        Thread.sleep(2000);
         pvtChatPage.clickSmileIcon();
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
         // Validate
@@ -225,26 +185,18 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC18");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickBoldIcon();
         // Validate
         Assert.assertEquals(pvtChatPage.validateBoldText(), "leh uga L");
         System.out.println("At this point the entered text: " + pvtChatPage.validateBoldText() +
                 " - is changed to bold");
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateDispTextIsBold(), "leh uga L");
         System.out.println("Successfully displayed on the chat section");
@@ -255,26 +207,18 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC19");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickItalicIcon();
         // Validate
         Assert.assertEquals(pvtChatPage.validateItalicText(), "leh uga L");
         System.out.println("At this point the entered text: " + pvtChatPage.validateItalicText() +
                 " - is changed to italic");
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateDispTextIsItalic(), "leh uga L");
         System.out.println("Successfully displayed on the chat section");
@@ -285,26 +229,18 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC20");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickUnderlineIcon();
         // Validate
         Assert.assertEquals(pvtChatPage.validateUnderlineText(), "leh uga L");
         System.out.println("At this point the entered text: " + pvtChatPage.validateItalicText() +
                 " - is changed to underline");
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateDispUnderlineText(), "leh uga L");
         System.out.println("Successfully displayed on the chat section");
@@ -315,26 +251,18 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC21");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickStrikethroughIcon();
         // Validate
         Assert.assertEquals(pvtChatPage.validateStrikethroughText(), "leh uga L");
         System.out.println("At this point the entered text: " + pvtChatPage.validateItalicText() +
                 " - is changed to strikethrough");
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateDispStrikethroughText(), "leh uga L");
         System.out.println("Successfully displayed on the chat section");
@@ -345,26 +273,18 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC22");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickOrdListIcon();
         // Validate
         Assert.assertEquals(pvtChatPage.validateOrdList(), "leh uga L");
         System.out.println("At this point the entered text: " + pvtChatPage.validateOrdList() +
                 " - is changed to ordered list format");
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateDispOrdList(), "leh uga L");
         System.out.println("Successfully displayed on the chat section");
@@ -375,26 +295,18 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC23");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickUndList();
         // Validate
         Assert.assertEquals(pvtChatPage.validateUndList(), "leh uga L");
         System.out.println("At this point the entered text: " + pvtChatPage.validateUndList() +
                 " - is changed to ordered list format");
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateDispUndList(), "leh uga L");
         System.out.println("Successfully displayed on the chat section");
@@ -405,26 +317,18 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC24");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickUndListDrpDwn();
         // Validate
         Assert.assertEquals(pvtChatPage.validateCircleUndListFormat(), "leh uga L");
         System.out.println("At this point the entered text: " + pvtChatPage.validateCircleUndListFormat() +
                 " - is changed to unordered list circle format");
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateDispCircleUndList(), "leh uga L");
         System.out.println("Successfully displayed on the chat section");
@@ -435,29 +339,19 @@ public class PrivateChatTest extends TestBase {
         System.out.println("Test ID: PC25");
         // Steps
         homePage.clickProfileIcon();
-        Thread.sleep(2000);
         homePage.clickPvtChatIcon();
-        Thread.sleep(2000);
         pvtChatPage.enterSearchField("randy pradana");
-        Thread.sleep(2000);
         pvtChatPage.clickSearchedProfile();
-        Thread.sleep(2000);
         pvtChatPage.enterMsgField("leh uga L");
-        Thread.sleep(2000);
         pvtChatPage.blockEnteredText();
-        Thread.sleep(2000);
         pvtChatPage.clickBgColorIcon();
-        Thread.sleep(2000);
         pvtChatPage.selectBlueBgColor();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateBlueBgTextColor(), "leh uga L");
         System.out.println("At this point the entered text background color: " + pvtChatPage.validateBlueBgTextColor() +
                 " - is changed to blue");
-        Thread.sleep(2000);
         pvtChatPage.clickMsgField();
         pvtChatPage.clickSendIcon();
-        Thread.sleep(2000);
         // Validate
         Assert.assertEquals(pvtChatPage.validateDispBlueBgTextColor(), "leh uga L");
         System.out.println("Successfully displayed on the chat section");
