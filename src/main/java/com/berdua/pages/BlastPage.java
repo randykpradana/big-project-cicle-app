@@ -53,7 +53,7 @@ public class BlastPage {
     By fontFamilyDrpDwn = By.id("fontFamily-1");
     By tnrFontStyle = By.xpath("//*[@id=\"dropdown-menu-fontFamily-1\"]/div/div/ul/li[5]/a");
     By textColorIcon = By.id("textColor-1");
-    By purpleTextColor = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[1]/span[8]");
+    By blueTextColor = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[9]/div[1]/span[4]");
     By trashTextColor = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[11]/div[1]/span[28]");
     By clearFormatting = By.id("clearFormatting-1");
     By orderedListIcon = By.id("formatOLSimple-1");
@@ -69,8 +69,7 @@ public class BlastPage {
     By decreaseQuo = By.xpath("//*[@id=\"dropdown-menu-quote-1\"]/div/div/ul/li[2]/a");
     // Story Field Emoticon
     By storyEmoticon = By.id("emoticons-1");
-    By animalsAndNature = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/span[33]/img");
-    By monkeyEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/span[2]");
+    By smileEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[10]/div[2]/span[17]/img");
     // Insert Files
     By insertFilesIcon = By.id("insertFiles-1");
     By uploadFileBox = By.id("fr-files-upload-layer-1");
@@ -321,8 +320,8 @@ public class BlastPage {
     public void clickTextColorIcon() {
         driver.findElement(textColorIcon).click();
     }
-    public void selectPurpleTextColor() {
-        driver.findElement(purpleTextColor).click();
+    public void selectBlueTextColor() {
+        driver.findElement(blueTextColor).click();
     }
     public void clickTrashTextColor() {
         driver.findElement(trashTextColor).click();
@@ -368,12 +367,9 @@ public class BlastPage {
     public void clickStoryEmoticon() {
         driver.findElement(storyEmoticon).click();
     }
-    public void clickAnimalsAndNature() {
-        driver.findElement(animalsAndNature).click();
-    }
-    public void clickMonkeyEmoticon() {
+    public void clickSmileEmoticon() {
         Actions act = new Actions(driver);
-        WebElement dbl = driver.findElement(monkeyEmoticon);
+        WebElement dbl = driver.findElement(smileEmoticon);
         act.doubleClick(dbl).perform();
     }
 
@@ -595,6 +591,10 @@ public class BlastPage {
     public String validateSelectedFontStyle() {
         driver.findElement(tnrFontStyle).isSelected();
         return driver.findElement(tnrFontStyle).getText();
+    }
+    public String validateBlueTextColor() {
+        driver.findElement(blueTextColor).isDisplayed();
+        return driver.findElement(blueTextColor).getText();
     }
     public String validateClearTextFormat() {
         driver.findElement(clearTextFormat).isDisplayed();

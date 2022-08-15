@@ -492,17 +492,12 @@ public class BlastTest extends TestBase {
         blastPage.clickStoryField();
         blastPage.clickTextColorIcon();
         Thread.sleep(2000);
-        //blastPage.selectPurpleTextColor(); - ERROR: ELEMENT
+        blastPage.selectBlueTextColor();
         Thread.sleep(2000);
+        blastPage.enterStoryField("THIS IS NOT A STORY");
         // Validate
-
-        blastPage.enterStoryField("this is not a story");
-        Thread.sleep(2000);
-        blastPage.clickStoryField();
-        blastPage.blockEnteredText();
+        Assert.assertTrue(true, blastPage.validateBlueTextColor());
         System.out.println("Able to enter Story field with another text color");
-        Thread.sleep(2000);
-        blastPage.enterStoryField("this is not a story");
         Thread.sleep(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0, 250)");
@@ -726,7 +721,7 @@ public class BlastTest extends TestBase {
         Thread.sleep(2000);
         blastPage.clickStoryField();
         blastPage.clickStoryEmoticon();
-        //blastPage.clickAnimalsAndNature(); - ERROR: ELEMENT
+        blastPage.clickSmileEmoticon();
         Thread.sleep(2000);
         // Validate
         Assert.assertTrue(true, blastPage.validateEnteredEmoticon());
