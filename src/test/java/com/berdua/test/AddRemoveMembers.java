@@ -38,10 +38,6 @@ public class AddRemoveMembers extends TestBase {
         addRemovePage.clickSubmitNewEmailBtn();
         Assert.assertEquals(addRemovePage.validateInvitation(), "Invitations has been sent");
         Thread.sleep(3000);
-        /** WebElement overview = wait.until(ExpectedConditions.presenceOfElementLocated(By.className("title")));
-         assertTrue(complete.isDisplayed());*/
-        /** driver. getCurrentUrl();
-         assertEquals(BASE_URL, "https://www.sekolahqa.com");*/
     }
 
     //Your Big Project 2
