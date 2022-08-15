@@ -12,7 +12,6 @@ import static com.berdua.base.TestBase.driver;
 public class BlastPage {
     // Blast List
     By createBlastBarBtn = By.xpath("//*[@id=\"root\"]/div[2]/div[2]/div/div/div[1]/div[3]/div/div[2]/p");
-    By postContainer = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div/div/div/div[1]/a/div");
     By threeDotsIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div[2]/div/svg");
     By editIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div[2]/div[2]/div/div/div[1]/div[1]/svg");
     By archiveIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[1]/div[2]/div[2]/div/div/div[2]/div[1]/svg");
@@ -69,7 +68,7 @@ public class BlastPage {
     By decreaseQuo = By.xpath("//*[@id=\"dropdown-menu-quote-1\"]/div/div/ul/li[2]/a");
     // Story Field Emoticon
     By storyEmoticon = By.id("emoticons-1");
-    By smileEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[10]/div[2]/span[17]/img");
+    By smileEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[1]/div[10]/div[2]/span[2]");
     // Insert Files
     By insertFilesIcon = By.id("insertFiles-1");
     By uploadFileBox = By.id("fr-files-upload-layer-1");
@@ -116,12 +115,16 @@ public class BlastPage {
     By threeDays = By.xpath("//*[@id=\"menu-\"]/div[3]/ul/li[2]");
     By calendarIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[3]/div[2]/div[2]/div[2]/div/div/div/div/button");
     By date = By.xpath("/html/body/div[3]/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div[5]/div[1]/button");
+    By calendarDrpDwn = By.xpath("/html/body/div[5]/div[2]/div[1]/div/div/div[1]/div[1]/button/span");
+    By elapsedYear = By.xpath("/html/body/div[5]/div[2]/div[1]/div/div/div[2]/div/div/div[114]/button");
+    By elapsedDate = By.xpath("/html/body/div[5]/div[2]/div[1]/div/div/div[2]/div/div[2]/div/div[5]/div[4]/button");
     // Notified Members
-    By plusIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div/div[17]/svg");
+    By plusIcon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div/div[19]");
     By searchMembersField = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[3]/div/input");
-    By selectAllCheckbox = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[4]/div/svg");
-    By memberCheckbox = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[5]/div[1]/svg");
+    By selectAllCheckbox = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[4]/div");
+    By memberCheckbox = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[5]/div");
     By doneButton = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[4]/div/div[2]/div[2]/div/div/div[1]/div");
+    By postContainer = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div/div/div/div[1]/a/div");
     // Private
     By pvtSwitchButton = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[5]/div[2]/label/span[1]/span[1]/input");
 
@@ -152,7 +155,7 @@ public class BlastPage {
     By enteredEmoticon = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[2]/div/div/div[3]/div/p");
     // Validation - Insert File
     By insFileByUrl = By.className("fr-file-date");
-    By insFileByInvalidUrl= By.className("fr-message");
+    By insFileByInvalidUrl = By.className("fr-message");
     By emptyUploadBoxSection = By.xpath("//*[@id=\"fr-files-by-url-layer-1\"]");
     By validEmbedCode = By.id("fr-inserted-file");
     By errorMsgBox = By.className("fr-message");
@@ -169,6 +172,8 @@ public class BlastPage {
     // Validation - Auto Complete
     By autoComInThreeDays = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div/div/div/div[1]/div[2]/div[1]/div[2]/div[2]/p");
     By autoComInSelectedDate = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div/div/div/div[1]/div[2]/div[1]/div[2]/div[2]/p");
+    // Validation - Notified Members
+    By notifiedMember = By.xpath("//*[@id=\"root\"]/div[3]/div[2]/div/div/div[5]/div[1]/p");
 
     // Initialize Objects
     public BlastPage() {
@@ -179,15 +184,19 @@ public class BlastPage {
     public void clickCreateBlastBarBtn() {
         driver.findElement(createBlastBarBtn).click();
     }
+
     public void clickPostContainer() {
         driver.findElement(postContainer).click();
     }
+
     public void clickThreeDotsIcon() {
         driver.findElement(threeDotsIcon).click();
     }
+
     public void clickArchiveIcon() {
         driver.findElement(archiveIcon).click();
     }
+
     public void clickEditIcon() {
         driver.findElement(editIcon).click();
     }
@@ -196,15 +205,19 @@ public class BlastPage {
     public void clickCheersIcon() {
         driver.findElement(cheersIcon).click();
     }
+
     public void enterCheersField(String cheers) {
         driver.findElement(cheersField).sendKeys(cheers);
     }
+
     public void clickCheersEmoteIcon() {
         driver.findElement(cheersEmoteIcon).click();
     }
+
     public void clickCheersCheck() {
         driver.findElement(cheersCheck).click();
     }
+
     public void clickCheersCancel() {
         driver.findElement(cheersCancel).click();
     }
@@ -213,9 +226,11 @@ public class BlastPage {
     public void clickAddNewCommentField() {
         driver.findElement(addNewCommentField).click();
     }
+
     public void enterCommentField(String comment) {
         driver.findElement(commentField).sendKeys(comment);
     }
+
     public void clickPostButton() {
         driver.findElement(postButton).click();
     }
@@ -226,36 +241,47 @@ public class BlastPage {
         driver.findElement(titleField).clear();
         driver.findElement(titleField).sendKeys(title);
     }
+
     public void clickTitleEmoticon() {
         driver.findElement(titleEmoticon).click();
     }
+
     public void enterEmoteSearchField(String emoteName) {
         driver.findElement(emoteSearchField).sendKeys(emoteName);
     }
+
     public void clickEmoteColorLabel() {
         driver.findElement(emoteColorLabel).click();
     }
+
     public void clickBlackLabel() {
         driver.findElement(blackColorLabel).click();
     }
+
     public void clickSpeakingEmoticon() {
         driver.findElement(speakingEmoticon).click();
     }
+
     public void clickManEmoticon() {
         driver.findElement(blackPolice).click();
     }
+
     public void emptyTitleField(String emptyTitle) {
         driver.findElement(titleField).clear();
     }
+
     public void enterStoryField(String story) {
         driver.findElement(storyField).sendKeys(story);
     }
+
     public void emptyStoryField(String emptyStory) {
         driver.findElement(storyField).clear();
     }
-    public void clickStoryField(){
+
+    public void clickStoryField() {
         driver.findElement(storyField).click();
     }
+
     public void clickPublishButton() {
         driver.findElement(publishButton).click();
     }
@@ -264,18 +290,23 @@ public class BlastPage {
     public void clickBoldIcon() {
         driver.findElement(boldIcon).click();
     }
+
     public void clickItalicIcon() {
         driver.findElement(italicIcon).click();
     }
+
     public void clickStrikethroughIcon() {
         driver.findElement(strikethroughIcon).click();
     }
+
     public void clickBgColorIcon() {
         driver.findElement(bgColorIcon).click();
     }
+
     public void selectBlueBgColor() {
         driver.findElement(blueBgColor).click();
     }
+
     public void blockEnteredText() {
         String story = "this is not a story";
         Actions actions = new Actions(driver);
@@ -284,81 +315,105 @@ public class BlastPage {
         int length = story.substring(0, story.indexOf("y")).length();
 
         actions.keyDown(Keys.LEFT_SHIFT);
-        for (int i = 0; i < length; i++){
+        for (int i = 0; i < length; i++) {
             actions.sendKeys(Keys.ARROW_RIGHT);
         }
         actions.keyUp(Keys.LEFT_SHIFT);
         actions.build().perform();
     }
+
     public void clickTrashBgColor() {
         driver.findElement(trashBgColor).click();
     }
+
     public void clickFontSizeDrpDwn() {
         driver.findElement(fontSizeDrpDwn).click();
     }
+
     public void selectFontSizePts() {
         driver.findElement(fontSizePts).click();
     }
+
     public void clickMoreTextIcon() {
         driver.findElement(moreTextIcon).click();
     }
+
     public void clickUnderlineIcon() {
         driver.findElement(underlineIcon).click();
     }
+
     public void clickSubscriptIcon() {
         driver.findElement(subscriptIcon).click();
     }
+
     public void clickSuperscriptIcon() {
         driver.findElement(superscriptIcon).click();
     }
+
     public void clickFontFamilyDrpDwn() {
         driver.findElement(fontFamilyDrpDwn).click();
     }
+
     public void selectTnrFontStyle() {
         driver.findElement(tnrFontStyle).click();
     }
+
     public void clickTextColorIcon() {
         driver.findElement(textColorIcon).click();
     }
+
     public void selectBlueTextColor() {
         driver.findElement(blueTextColor).click();
     }
+
     public void clickTrashTextColor() {
         driver.findElement(trashTextColor).click();
     }
+
     public void clickClearFormatting() {
         driver.findElement(clearFormatting).click();
     }
+
     public void clickOrderedListIcon() {
         driver.findElement(orderedListIcon).click();
     }
+
     public void clickUnorderedListIcon() {
         driver.findElement(unorderedListIcon).click();
     }
+
     public void clickUnorderedListDrpDwn() {
         driver.findElement(unorderedListDrpDwn).click();
     }
+
     public void selectCircleUndList() {
         driver.findElement(circleUndList).click();
     }
+
     public void clickMoreParagraphIcon() {
         driver.findElement(moreParagraphIcon).click();
     }
+
     public void selectAlignCenter() {
         driver.findElement(alignCenter).click();
     }
+
     public void clickIncreaseInd() {
         driver.findElement(increaseInd).click();
     }
+
     public void clickDecreaseInd() {
         driver.findElement(decreaseInd).click();
     }
+
     public void clickQuoteDrpDwn() {
         driver.findElement(quoteDrpDwn).click();
     }
+
     public void selectIncreaseQuo() {
         driver.findElement(increaseQuo).click();
     }
+
     public void selectDecreaseQuo() {
         driver.findElement(decreaseQuo).click();
     }
@@ -367,43 +422,52 @@ public class BlastPage {
     public void clickStoryEmoticon() {
         driver.findElement(storyEmoticon).click();
     }
+
     public void clickSmileEmoticon() {
-        Actions act = new Actions(driver);
-        WebElement dbl = driver.findElement(smileEmoticon);
-        act.doubleClick(dbl).perform();
+        driver.findElement(smileEmoticon).click();
     }
 
     // Insert Files Methods
     public void clickInsertFilesIcon() {
         driver.findElement(insertFilesIcon).click();
     }
+
     public void clickUploadFileBox() {
         driver.findElement(uploadFileBox).click();
     }
+
     public void clickFileCheckBox() {
         driver.findElement(fileCheckBox).click();
     }
+
     public void clickInsertIcon() {
         driver.findElement(insertIcon).click();
     }
+
     public void clickDeleteIcon() {
         driver.findElement(deleteIcon).click();
     }
+
     public void clickByUrl() {
         driver.findElement(byUrl).click();
     }
+
     public void enterByUrlField(String fileUrl) {
         driver.findElement(byUrlField).sendKeys(fileUrl);
     }
+
     public void clickAddUrlButton() {
         driver.findElement(addUrlButton).click();
     }
+
     public void clickEmbedCode() {
         driver.findElement(embedCode).click();
     }
+
     public void enterEmbedCodeField(String fileEmbedCode) {
         driver.findElement(embedCodeField).sendKeys(fileEmbedCode);
     }
+
     public void clickInsertEmbedButton() {
         driver.findElement(insertEmbedButton).click();
     }
@@ -412,12 +476,15 @@ public class BlastPage {
     public void clickInsertLinkIcon() {
         driver.findElement(insertLinkIcon).click();
     }
+
     public void enterInsertUrlField(String linkUrl) {
         driver.findElement(insertUrlField).sendKeys(linkUrl);
     }
+
     public void enterInsertUrlText(String textUrl) {
         driver.findElement(insertUrlText).sendKeys(textUrl);
     }
+
     public void clickInsertUrlButton() {
         driver.findElement(insertUrlButton).click();
     }
@@ -426,51 +493,67 @@ public class BlastPage {
     public void clickMoreRichIcon() {
         driver.findElement(moreRichIcon).click();
     }
+
     public void clickInsertImage() {
         driver.findElement(insertImage).click();
     }
+
     public void clickDropImageBox() {
         driver.findElement(dropImageBox).click();
     }
+
     public void clickImageByUrl() {
         driver.findElement(imageByUrl).click();
     }
+
     public void enterImageByUrlField() {
         driver.findElement(imageByUrlField).sendKeys();
     }
+
     public void clickInsImageUrlButton() {
         driver.findElement(insImageUrlButton).click();
     }
+
     public void clickInsertVideo() {
         driver.findElement(insertVideo).click();
     }
+
     public void enterVideoUrlField(String videoUrl) {
         driver.findElement(videoUrlField).sendKeys(videoUrl);
     }
+
     public void clickAutoplayCheckbox() {
         driver.findElement(autoplayCheckbox).click();
     }
+
     public void clickInsertVideoButton() {
         driver.findElement(insertVideoButton).click();
     }
+
     public void clickUploadFile() {
         driver.findElement(uploadFile).click();
     }
+
     public void clickUplFileLayer() {
         driver.findElement(uplFileLayer).click();
     }
+
     public void clickInsertTable() {
         driver.findElement(insertTable).click();
     }
+
     public void selectTableFormat() {
         driver.findElement(tableFormat).click();
     }
+
     public void clickSpeCharacters() {
         driver.findElement(speCharacters).click();
     }
+
     public void selectCopyrightSign() {
         driver.findElement(copyrightSign).click();
     }
+
     public void clickHorizontalLine() {
         driver.findElement(horizontalLine).click();
     }
@@ -479,6 +562,7 @@ public class BlastPage {
     public void clickUndoIcon() {
         driver.findElement(undoIcon).click();
     }
+
     public void clickRedoIcon() {
         driver.findElement(redoIcon).click();
     }
@@ -487,35 +571,56 @@ public class BlastPage {
     public void clickAutoComDrpDwn() {
         driver.findElement(autoComDrpDwn).click();
     }
+
     public void selectDateManually() {
         driver.findElement(dateManually).click();
     }
+
     public void clickAutoComInDrpDwn() {
         driver.findElement(autoComInDrpDwn).click();
     }
+
     public void selectThreeDays() {
         driver.findElement(threeDays).click();
     }
+
     public void clickCalendarIcon() {
         driver.findElement(calendarIcon).click();
     }
+
     public void selectDate() {
         driver.findElement(date).click();
+    }
+
+    public void clickCalendarDrpDwn() {
+        driver.findElement(calendarDrpDwn).click();
+    }
+
+    public void selectElapsedYear() {
+        driver.findElement(elapsedYear).click();
+    }
+
+    public void selectElapsedDate() {
+        driver.findElement(elapsedDate).click();
     }
 
     // Notified Members
     public void clickPlusIcon() {
         driver.findElement(plusIcon).click();
     }
-    public void enterSearchMembersField() {
-        driver.findElement(searchMembersField).sendKeys();
+
+    public void enterSearchMembersField(String member) {
+        driver.findElement(searchMembersField).sendKeys(member);
     }
+
     public void uncheckSelectAllCheckbox() {
         driver.findElement(selectAllCheckbox).click();
     }
+
     public void checkMemberCheckbox() {
         driver.findElement(memberCheckbox).click();
     }
+
     public void clickDoneButton() {
         driver.findElement(doneButton).click();
     }
@@ -536,10 +641,12 @@ public class BlastPage {
         driver.findElement(createBlastLabel).isDisplayed();
         return driver.findElement(createBlastLabel).getText();
     }
+
     public String validateSuccessPopUpMsg() {
         driver.findElement(successPopUpMsg).isDisplayed();
         return driver.findElement(successPopUpMsg).getText();
     }
+
     public String validateErrorPopUpMsg() {
         driver.findElement(errorPopUpMsg).isDisplayed();
         return driver.findElement(errorPopUpMsg).getText();
@@ -550,6 +657,7 @@ public class BlastPage {
         driver.findElement(displayedEmoticon).isDisplayed();
         return driver.findElement(displayedEmoticon).getAttribute("");
     }
+
     public String validateModifiedEmoticonColor() {
         driver.findElement(modifiedEmoticonColor).isDisplayed();
         return driver.findElement(modifiedEmoticonColor).getAttribute("");
@@ -560,62 +668,77 @@ public class BlastPage {
         driver.findElement(boldText).isDisplayed();
         return driver.findElement(boldText).getText();
     }
+
     public String validateItalicText() {
         driver.findElement(italicText).isDisplayed();
         return driver.findElement(italicText).getText();
     }
+
     public String validateStrikethroughText() {
         driver.findElement(strikethroughText).isDisplayed();
         return driver.findElement(strikethroughText).getText();
     }
+
     public String validateChangedBgColor() {
         driver.findElement(changedBgColor).isDisplayed();
         return driver.findElement(changedBgColor).getText();
     }
+
     public String validateSelectedFontSizePts() {
         driver.findElement(fontSizePts).isSelected();
         return driver.findElement(fontSizePts).getText();
     }
+
     public String validateUnderlinedText() {
         driver.findElement(underlinedText).isDisplayed();
         return driver.findElement(underlinedText).getText();
     }
+
     public String validateSubscriptedText() {
         driver.findElement(subscriptedText).isDisplayed();
         return driver.findElement(subscriptedText).getText();
     }
+
     public String validateSuperscriptedText() {
         driver.findElement(superscriptedText).isDisplayed();
         return driver.findElement(superscriptedText).getText();
     }
+
     public String validateSelectedFontStyle() {
         driver.findElement(tnrFontStyle).isSelected();
         return driver.findElement(tnrFontStyle).getText();
     }
+
     public String validateBlueTextColor() {
         driver.findElement(blueTextColor).isDisplayed();
         return driver.findElement(blueTextColor).getText();
     }
+
     public String validateClearTextFormat() {
         driver.findElement(clearTextFormat).isDisplayed();
         return driver.findElement(clearTextFormat).getText();
     }
+
     public String validateOrderedText() {
         driver.findElement(orderedText).isDisplayed();
         return driver.findElement(orderedText).getText();
     }
+
     public String validateUnorderedText() {
         driver.findElement(unorderedText).isDisplayed();
         return driver.findElement(unorderedText).getText();
     }
+
     public String validateCircleUndText() {
         driver.findElement(circleUndText).isDisplayed();
         return driver.findElement(circleUndText).getText();
     }
+
     public String validateAlignCenterText() {
         driver.findElement(alignCenterText).isDisplayed();
         return driver.findElement(alignCenterText).getText();
     }
+
     public String validateQuotedText() {
         driver.findElement(quotedText).isDisplayed();
         return driver.findElement(quotedText).getText();
@@ -632,18 +755,22 @@ public class BlastPage {
         driver.findElement(insFileByUrl).isDisplayed();
         return driver.findElement(insFileByUrl).getText();
     }
+
     public String validateInsFileByInvalidUrl() {
         driver.findElement(insFileByInvalidUrl).isDisplayed();
         return driver.findElement(insFileByInvalidUrl).getText();
     }
+
     public boolean validateEmptyInsertedSection() {
         driver.findElement(emptyUploadBoxSection).isDisplayed();
         return true;
     }
+
     public boolean validateInsertedEmbedCodeFile() {
         driver.findElement(validEmbedCode).isDisplayed();
         return true;
     }
+
     public String validateErrorMsgBox() {
         driver.findElement(errorMsgBox).isDisplayed();
         return driver.findElement(errorMsgBox).getText();
@@ -660,14 +787,17 @@ public class BlastPage {
         driver.findElement(insertedVideo).isDisplayed();
         return true;
     }
+
     public boolean validateInsertedTableFormat() {
         driver.findElement(insertedTable).isDisplayed();
         return true;
     }
+
     public boolean validateSelectedSpeCharacters() {
         driver.findElement(selectedSpeCharacters).isDisplayed();
         return true;
     }
+
     public boolean validateEnteredHorizontalLine() {
         driver.findElement(enteredHorizontalLine).isDisplayed();
         return true;
@@ -678,6 +808,7 @@ public class BlastPage {
         driver.findElement(undoEnteredText).isDisplayed();
         return driver.findElement(undoEnteredText).getText();
     }
+
     public String validateRedoEnteredText() {
         driver.findElement(redoEnteredText).isDisplayed();
         return driver.findElement(redoEnteredText).getText();
@@ -688,8 +819,15 @@ public class BlastPage {
         driver.findElement(autoComInThreeDays).isDisplayed();
         return driver.findElement(autoComInThreeDays).getText();
     }
+
     public String validateAutoComInSelectedDate() {
         driver.findElement(autoComInSelectedDate).isDisplayed();
         return driver.findElement(autoComInSelectedDate).getText();
+    }
+
+    // Validation - Notified Members
+    public boolean validateNotifiedMember() {
+        driver.findElement(notifiedMember).isDisplayed();
+        return true;
     }
 }

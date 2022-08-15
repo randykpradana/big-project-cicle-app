@@ -1,16 +1,14 @@
 package com.berdua.test;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.berdua.base.TestBase;
 import com.berdua.pages.HomePage;
 import com.berdua.pages.LoginPage;
 import com.berdua.pages.PrivateChatPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class PrivateChatTest extends TestBase {
 
@@ -18,20 +16,26 @@ public class PrivateChatTest extends TestBase {
     HomePage homePage;
     PrivateChatPage pvtChatPage;
 
-    ExtentReports extent = new ExtentReports();
-    ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+    static ExtentReports extent;
+    ExtentSparkReporter sparkReporter;
 
     public PrivateChatTest() {
         super();
+    }
+    @BeforeSuite
+    public void BeforeSuite() {
+        extent = new ExtentReports();
+        sparkReporter = new ExtentSparkReporter("PrivateChatTestReports.html");
+        extent.attachReporter(sparkReporter);
+    }
+    @AfterSuite
+    public void AfterSuite() {
+        extent.flush();
     }
 
     @BeforeMethod
     public void initialStart() throws InterruptedException {
         System.out.println("Test starts");
-        spark.config().setTheme(Theme.DARK);
-        spark.config().setDocumentTitle("MyReport");
-        extent.attachReporter(spark);
-
         initialization();
         loginPage = new LoginPage();
         homePage = new HomePage();
@@ -55,6 +59,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 1)
     public void PC01_User_can_see_Private_Chats_page() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC01_User_can_see_Private_Chats_page");
         System.out.println("Test ID: PC01");
         // Steps
         homePage.clickProfileIcon();
@@ -68,6 +73,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 2)
     public void PC02_User_can_search_chat_history_by_typing_the_profile_name_on_Search_field() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC02_User_can_search_chat_history_by_typing_the_profile_name_on_Search_field");
         System.out.println("Test ID: PC02");
         // Steps
         homePage.clickProfileIcon();
@@ -83,6 +89,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 3)
     public void PC03_User_cannot_find_chat_history_if_the_profile_name_does_not_exists() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC03_User_cannot_find_chat_history_if_the_profile_name_does_not_exists");
         System.out.println("Test ID: PC03");
         // Steps
         homePage.clickProfileIcon();
@@ -98,6 +105,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 4)
     public void PC04_User_can_change_section_from_Recent_Chats_to_Contacts() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC04_User_can_change_section_from_Recent_Chats_to_Contacts");
         System.out.println("Test ID: PC04");
         // Steps
         homePage.clickProfileIcon();
@@ -113,6 +121,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 5)
     public void PC05_User_can_search_team_members_by_profile_name_in_Contact_section() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC05_User_can_search_team_members_by_profile_name_in_Contact_section");
         System.out.println("Test ID: PC05");
         // Steps
         homePage.clickProfileIcon();
@@ -128,6 +137,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 6)
     public void PC06_User_cannot_find_the_contacts_of_members_who_are_not_registered_as_part_of_the_team() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC06_User_cannot_find_the_contacts_of_members_who_are_not_registered_as_part_of_the_team");
         System.out.println("Test ID: PC06");
         // Steps
         homePage.clickProfileIcon();
@@ -143,6 +153,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 7)
     public void PC15_User_can_download_attached_file() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC15_User_can_download_attached_file");
         System.out.println("Test ID: PC15");
         // Steps
         homePage.clickProfileIcon();
@@ -160,6 +171,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 8)
     public void PC16_User_can_delete_message_that_has_been_sent() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC16_User_can_delete_message_that_has_been_sent");
         System.out.println("Test ID: PC16");
         // Steps
         homePage.clickProfileIcon();
@@ -182,6 +194,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 9)
     public void PC17_User_can_add_emoticon_on_the_chat_field() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC17_User_can_add_emoticon_on_the_chat_field");
         System.out.println("Test ID: PC17");
         // Steps
         homePage.clickProfileIcon();
@@ -208,6 +221,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 10)
     public void PC18_User_can_enter_text_with_Bold_text_formatting() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC18_User_can_enter_text_with_Bold_text_formatting");
         System.out.println("Test ID: PC18");
         // Steps
         homePage.clickProfileIcon();
@@ -237,6 +251,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 11)
     public void PC19_User_can_enter_text_with_Italic_text_formatting() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC19_User_can_enter_text_with_Italic_text_formatting");
         System.out.println("Test ID: PC19");
         // Steps
         homePage.clickProfileIcon();
@@ -266,6 +281,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 12)
     public void PC20_User_can_enter_text_with_Underline_text_formatting() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC20_User_can_enter_text_with_Underline_text_formatting");
         System.out.println("Test ID: PC20");
         // Steps
         homePage.clickProfileIcon();
@@ -295,6 +311,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 13)
     public void PC21_User_can_enter_text_with_Strikethrough_text_formatting() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC21_User_can_enter_text_with_Strikethrough_text_formatting");
         System.out.println("Test ID: PC21");
         // Steps
         homePage.clickProfileIcon();
@@ -324,6 +341,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 14)
     public void PC22_User_can_enter_text_with_Ordered_List_text_formatting() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC22_User_can_enter_text_with_Ordered_List_text_formatting");
         System.out.println("Test ID: PC22");
         // Steps
         homePage.clickProfileIcon();
@@ -353,6 +371,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 15)
     public void PC23_User_can_enter_text_with_Unordered_List_text_formatting() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC23_User_can_enter_text_with_Unordered_List_text_formatting");
         System.out.println("Test ID: PC23");
         // Steps
         homePage.clickProfileIcon();
@@ -382,6 +401,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 16)
     public void PC24_User_can_select_another_Unordered_List_text_formatting_style() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC24_User_can_select_another_Unordered_List_text_formatting_style");
         System.out.println("Test ID: PC24");
         // Steps
         homePage.clickProfileIcon();
@@ -411,6 +431,7 @@ public class PrivateChatTest extends TestBase {
     }
     @Test(priority = 17)
     public void PC25_User_can_enter_text_with_background_color() throws InterruptedException {
+        ExtentTest test = extent.createTest("PC25_User_can_enter_text_with_background_color");
         System.out.println("Test ID: PC25");
         // Steps
         homePage.clickProfileIcon();
@@ -445,7 +466,6 @@ public class PrivateChatTest extends TestBase {
     public void endOfTest() throws InterruptedException {
         System.out.println("Test is finished");
         Thread.sleep(2000);
-        extent.flush();
         driver.quit();
     }
 }
