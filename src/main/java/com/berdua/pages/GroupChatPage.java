@@ -162,13 +162,13 @@ public class GroupChatPage {
     }
 
     //Assert
-        //**GC (priority 1- 7) , (priority 13 - 14) dan 17
+        //**GC (priority 3-9) , (priority 15-17)
     By messageContent= By.xpath("//*[@id=\"list-groupChat-messages-section\"]/div/div/div[1]/div/div/div[1]/div[2]");
     public String clickMessageContent(){
         return driver.findElement(messageContent).getText();
     }
 
-        //** (priority 8-12).
+        //** (priority 10-14).
     By TitleBigProject = By.xpath("//*[@id=\"list-groupChat-messages-section\"]/div/div/div[1]/div/div/div[1]/div[2]/div/ul/li[1]");
     By TitleProject = By.xpath("//*[@id=\"list-groupChat-messages-section\"]/div/div/div[1]/div/div/div[1]/div[2]/div/ul/li[2]");
     public String clickTitle1(){
