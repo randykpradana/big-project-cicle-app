@@ -12,34 +12,33 @@ public class LoginPage extends TestBase {
     By passwordField = By.xpath("//*[@id=\"password\"]/div[1]/div/div[1]/input");
     By passNextButton = By.xpath("//*[@id=\"passwordNext\"]/div/button/span");
     By companyLabel = By.xpath("/html/body/div[2]/div[3]/div/div/div[2]/div[3]/div/div/div[2]");
+
     // Initialize Page Objects
     public LoginPage() {
         PageFactory.initElements(driver, "/signin");
     }
+
     // Actions
     public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
-    public LoginPage enterEmailField(String username) {
+    public void enterEmailField(String username) {
         driver.findElement(emailField).sendKeys(username);
-        return new LoginPage();
     }
-    public LoginPage clickLoginNextButton() {
+    public void clickLoginNextButton() {
         driver.findElement(loginNextButton).click();
-        return new LoginPage();
     }
-    public LoginPage enterPasswordField(String password) {
+    public void enterPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
-        return new LoginPage();
     }
-    public LoginPage clickPassNextButton() {
+    public void clickPassNextButton() {
         driver.findElement(passNextButton).click();
-        return new LoginPage();
     }
-    public LoginPage selectCompanyLabel() {
+    public void selectCompanyLabel() {
         driver.findElement(companyLabel).click();
-        return new LoginPage();
     }
+
+    // Validate
     public String validateDashboard() {
         return driver.getTitle();
     }

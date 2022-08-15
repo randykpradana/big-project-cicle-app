@@ -2,8 +2,6 @@ package com.berdua.pages;
 
 import com.berdua.base.TestBase;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends TestBase {
@@ -11,7 +9,7 @@ public class HomePage extends TestBase {
     By teamCard = By.xpath("//*[@id=\"root\"]/div[3]/div[4]/a[1]");
     By teamB2 = By.xpath("//*[@id=\"root\"]/div[3]/div[4]/a[2]");
     By profileIcon = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[4]/div/span");
-    By privateChatIcon = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[5]/div/div[1]/div[1]/a/div/div/svg");
+    By privateChatIcon = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[5]/div/div[1]/div[1]/a");
     By searchBarField = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[1]/input");
     By navbarDrpDwnIcon = By.xpath("//*[@id=\"root\"]/div[2]/div[2]/div/div/div[1]/div[1]/div[1]/p");
     By blastDrpDwn = By.xpath("//*[@id=\"root\"]/div[2]/div[2]/div/div/div[1]/div[2]/div/div/div/a[2]/div/p");
