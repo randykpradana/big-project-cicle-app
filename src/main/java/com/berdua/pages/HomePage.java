@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage extends TestBase {
 
     By teamCard = By.xpath("//*[@id=\"root\"]/div[3]/div[4]/a[1]");
+    By teamB2 = By.xpath("//*[@id=\"root\"]/div[3]/div[4]/a[2]");
     By profileIcon = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[4]/div/span");
     By privateChatIcon = By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[5]/div/div[1]/div[1]/a/div/div/svg");
     By searchBarField = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[1]/input");
@@ -24,6 +25,7 @@ public class HomePage extends TestBase {
     public void clickTeamCard() {
         driver.findElement(teamCard).click();
     }
+    public void clickTeamB2() { driver.findElement(teamB2).click(); }
     public void clickProfileIcon() {
         driver.findElement(profileIcon).click();
     }

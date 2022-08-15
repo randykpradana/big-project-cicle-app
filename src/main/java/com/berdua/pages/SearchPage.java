@@ -14,23 +14,25 @@ public class SearchPage extends TestBase {
     By teamB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[2]/div/div[2]/h1");
     By teamB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div[2]/a[3]/div/div[2]/h1");
     By GroupchatSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]/div[2]/h1");
-    By GroupchatB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
-    By GroupchatB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
-    By BlastSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]");
-    By BlastB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
-    By BlastB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
-    By ScheduleSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]/div[2]/h1");
-    By ScheduleB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
-    By ScheduleB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[3]/div/div[1]/div[2]/h1");
-    By BoardSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]/div[2]/h1");
-    By BoardB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
-    By BoardB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[3]/div/div[1]/div[2]/h1");
-    By CheckinSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]/div[2]/h1");
-    By CheckinB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
-    By CheckinB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[3]/div/div[1]/div[2]/h1");
-    By DocsSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[1]/div/div[1]/div[2]/h1");
-    By DocsB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[2]/div/div[1]/div[2]/h1");
-    By DocsB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a[3]/div/div[1]/div[2]/h1");
+    By GroupchatB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By GroupchatB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By BlastSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By BlastB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By BlastB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By ScheduleSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By ScheduleB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By ScheduleB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By BoardSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By BoardB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By BoardB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By CheckinSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By CheckinB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By CheckinB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By DocsSQA = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By DocsB2 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By DocsB1 = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[2]/div/a");
+    By NotFound = By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/div/div/div/div[1]/h1");
+
 
     //Action
     public void clickSearchBar() {
@@ -60,5 +62,12 @@ public class SearchPage extends TestBase {
     public void clickDocsSQA() {driver.findElement(DocsSQA).click();}
     public void clickDocsB2() {driver.findElement(DocsB2).click();}
     public void clickDocsB1() {driver.findElement(DocsB1).click();}
+
+    public String getNotFound() {
+        String head = driver.findElement(NotFound).getText();
+        return head;
+    }
+
+
 
 }
